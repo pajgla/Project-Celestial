@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e583afceeec5964e9e75693f8f656ba, type: 3}
+  m_Name: Planet Config
+  m_EditorClassIdentifier: 
+  m_OrbitMaterial: {fileID: 2100000, guid: 80b614b5135278d47978959ff053bee5, type: 2}
+  m_OrbitColor: {r: 0, g: 0, b: 0, a: 0}
+  m_ShouldDrawOrbit: 1
+  m_MinOrbitSpeed: 1
+  m_MaxOrbitSpeed: 5
+  m_OrbitDrawWidth: 0.02
+  m_OrbitDrawPoints: 100
+  m_IsMoveableOrbit: 0
+  m_AllowedSprites:
+  - {fileID: 21300000, guid: 4f04f39322b6f5045873ffffcab567d4, type: 3}
+  m_PlanetPrefab: {fileID: 4302612713933445237, guid: 5e59a1e0a6a618d4cbbda1968f509256, type: 3}
+  m_MinPlanetRadius: 1
+  m_MaxPlanetRadius: 3
+  m_CloseRangeDistance: 3
+  m_MidRangeDistance: 5
+  m_MoonPrefab: {fileID: 1211443858589400438, guid: 9c774763916d86544b1337c6dbfc7c6f, type: 3}
+  m_MoonConfig: {fileID: 11400000, guid: 83d0fa85959c85a4aa3ae1bfc2d281d8, type: 2}
+  m_MoonChance: 53
+  m_MultipleMoonChance: 1
+  m_MaxMoons: 5
+  m_DistanceBetweenMoons: 0.5
+  m_MinDistanceFromMoonToPlanet: 0.5
+  m_CloseRangePlanetColors:
+  - {r: 0.7924528, g: 0.40828848, b: 0, a: 1}
+  - {r: 0.7921569, g: 0.2368119, b: 0, a: 1}
+  - {r: 0.6037736, g: 0.1793387, b: 0, a: 1}
+  - {r: 0.38679248, g: 0.12193298, b: 0.009122463, a: 1}
+  - {r: 1, g: 0.17318437, b: 0, a: 1}
+  - {r: 0.9245283, g: 0.5919539, b: 0.34451762, a: 1}
+  m_MidRangePlanetColors:
+  - {r: 0.17613766, g: 0.46226418, b: 0.17225882, a: 1}
+  - {r: 0, g: 0.20873691, b: 0.5566038, a: 1}
+  - {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
+  - {r: 0.57932925, g: 0.35056958, b: 0.735849, a: 1}
+  m_FarRangePlanetColors:
+  - {r: 0.8962264, g: 0.68668306, b: 0.19023676, a: 1}
+  - {r: 0.61877, g: 0.824641, b: 0.9716981, a: 1}
+  - {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
+  - {r: 0.5613208, g: 0.6668156, b: 1, a: 1}
+  - {r: 0.5613208, g: 0.6668156, b: 1, a: 1}
