@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace CelestialObjects
 {
@@ -9,17 +11,24 @@ namespace CelestialObjects
     {
         [SerializeField] PlanetConfig m_PlanetConfig;
 
+        [Header("Prefab references")]
         [SerializeField] SolarSystem m_SolarSystemPrefab;
         [SerializeField] Star m_StarPrefab;
 
-        [SerializeField] string[] m_SolarSystemNames;
+        [Header("Planet configs")]
+        [SerializeField] Core.RangeValueInt m_PlanetCount;
+        [SerializeField] Core.RangeValueFloat m_DistanceBetweenPlanets;
+        [SerializeField] Core.RangeValueFloat m_FirstPlanetDistanceFromStar;
+        [SerializeField] float m_MaxSolarSystemHalfOrbitDistance = 15f;
+        
+        [Header("Star configs")]
         [SerializeField] Sprite[] m_StarSprites;
-        [SerializeField] int m_MinPlanetsCount = 1;
-        [SerializeField] int m_MaxPlanetsCount = 10;
-        [SerializeField] float m_MinDistanceBetweenPlanets = 0.2f;
-        [SerializeField] float m_MaxDistanceBetweenPlanets = 4f;
-        [SerializeField] float m_MaxDistanceFromStar = 15f;
+        [SerializeField] Core.RangeValueFloat m_StarRadius;
+        
+        [SerializeField] string[] m_SolarSystemNames;
 
+        
+        //Getters
         public PlanetConfig GetPlanetConfig()
         {
             return m_PlanetConfig;
@@ -45,29 +54,12 @@ namespace CelestialObjects
             return m_StarSprites;
         }
 
-        public int GetMinPlanetsCount()
-        {
-            return m_MinPlanetsCount;
-        }
+        public Core.RangeValueInt GetPlanetCount() { return m_PlanetCount; }
 
-        public int GetMaxPlanetsCount()
-        {
-            return m_MaxPlanetsCount;
-        }
+        public Core.RangeValueFloat GetDistanceBetweenPlanetsRange() { return m_DistanceBetweenPlanets; }
+        public float GetMaxSolarSystemHalfOrbitDistance() { return m_MaxSolarSystemHalfOrbitDistance; }
 
-        public float GetMinDistanceBetweenPlanets()
-        {
-            return m_MinDistanceBetweenPlanets;
-        }
-
-        public float GetMaxDistanceBetweenPlanets()
-        {
-            return m_MaxDistanceBetweenPlanets;
-        }
-
-        public float GetMaxDistanceFromStar()
-        {
-            return m_MaxDistanceFromStar;
-        }
+        public Core.RangeValueFloat GetFirstPlanetDistanceFromStarRange() { return m_FirstPlanetDistanceFromStar; }
+        public Core.RangeValueFloat GetStarRadiusRange() { return m_StarRadius; }
     }
 }

@@ -12,6 +12,8 @@ namespace CelestialObjects
         float m_CurrentAngleToParentObject = 0.0f;
         float m_OrbitSpeed = 1.0f;
         float m_OrbitRadius = 1.0f;
+        float m_Radius = 1.0f;
+        float m_TotalRadius = 1.0f;
 
         bool m_IsMoveableOrbit = false;
         
@@ -21,12 +23,10 @@ namespace CelestialObjects
         public virtual void Initialize(CelestialObjectBase parentObject, CelestialObjectConfigBase config, float orbitRadius)
         {
             SetParentCelestialObject(parentObject);
-            m_OrbitRadius = orbitRadius;
-            m_OrbitSpeed = Random.Range(config.GetMinOrbitSpeed(), config.GetMaxOrbitSpeed());
+            m_OrbitRadius = orbitRadius + (GetRadius() / 2.0f);
+            m_OrbitSpeed = config.GetOrbitSpeedRange().GetRandomValueFromRange();
             m_CurrentAngleToParentObject = Random.Range(0.0f, 360.0f);
             m_IsMoveableOrbit = config.GetIsMoveableOrbit();
-
-            GetComponent<SpriteRenderer>().color = config.GetRandomColor(this);
 
             if (config.GetShouldDrawOrbit())
             {
@@ -102,7 +102,7 @@ namespace CelestialObjects
             lineRenderer.SetPositions(localPoints);
         }
 
-        //Getters
+        //Getters and setters
         public float GetCurrentAngleToParentObject() { return m_CurrentAngleToParentObject; }
         public void SetCurrentAngleToParentObject(float value) { m_CurrentAngleToParentObject = value; }
         public float GetOrbitSpeed() { return m_OrbitSpeed; }
@@ -111,6 +111,17 @@ namespace CelestialObjects
         public void SetParentCelestialObject(CelestialObjectBase celestialObject) { m_ParentCelestialObject = celestialObject; }
         public float GetOrbitRadius() { return m_OrbitRadius; }
         public void SetOrbitRadius(float value) { m_OrbitRadius = value; }
+        public float GetRadius() { return m_Radius; }
+
+        public void SetRadius(float value)
+        {
+            transform.localScale = new Vector3(value, value, 1.0f);
+            m_Radius = value;
+        }
+
+        //Radius containing other celestial object orbiting this one
+        public float GetTotalRadius() { return m_TotalRadius; }
+        public void SetTotalRadius(float value) { m_TotalRadius = value; }
     }
 }
 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace CelestialObjects
@@ -16,12 +17,12 @@ namespace CelestialObjects
             }
             
             PlanetConfig planetConfig = (PlanetConfig)config;
-            base.Initialize(parentObject, config, orbitRadius);
 
             //#TODO
             GetComponent<SpriteRenderer>().sprite = planetConfig.GetAllowedSprites()[0];
             
             GenerateMoons(planetConfig);
+            base.Initialize(parentObject, config, orbitRadius + (GetTotalRadius() / 2.0f));
         }
 
         private void GenerateMoons(PlanetConfig config)
@@ -40,17 +41,19 @@ namespace CelestialObjects
                 moonsToSpawn = Random.Range(2, config.GetMaxMoons() + 1);
             }
 
-            float radius = config.GetMinDistanceFromMoonToPlanet();
+            float radius = (GetRadius() / 2.0f) + config.GetDistanceFromPlanetToFirstMoonRange().GetRandomValueFromRange();
             for (int i = 0; i < moonsToSpawn; i++)
             {
-                Moon newMoon = Instantiate(config.GetMoonPrefab());
+                Moon newMoon = Instantiate(config.GetMoonPrefab(), transform);
                 newMoon.Initialize(this, config.GetMoonConfig(), radius);
-
-                radius += config.GetDistanceBetweenMoons();
+                radius += (newMoon.GetRadius() / 2.0f) + config.GetDistanceBetweenMoonsRange().GetRandomValueFromRange();
                 
                 m_Moons.Add(newMoon);
-                print("Moon spawned");
             }
+            
+            Moon lastSpawnedMoon = m_Moons.Last();
+            float totalRadius = (lastSpawnedMoon.GetOrbitRadius() * 2) + lastSpawnedMoon.GetRadius();
+            SetTotalRadius(totalRadius);
         }
     }
 }

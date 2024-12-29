@@ -15,16 +15,23 @@ MonoBehaviour:
   m_PlanetConfig: {fileID: 11400000, guid: 6acd1bda4d345234faf796c44ecf1f32, type: 2}
   m_SolarSystemPrefab: {fileID: 1814325838101983308, guid: 883e145a4465d3949aa4a5c903b760b7, type: 3}
   m_StarPrefab: {fileID: 8329575002863589320, guid: 6da593184730fdb41a269361c4ca1add, type: 3}
-  m_PlanetPrefab: {fileID: 4302612713933445237, guid: 5e59a1e0a6a618d4cbbda1968f509256, type: 3}
+  m_PlanetCount:
+    m_MinValue: 2
+    m_MaxValue: 10
+  m_DistanceBetweenPlanets:
+    m_MinValue: 5
+    m_MaxValue: 15
+  m_FirstPlanetDistanceFromStar:
+    m_MinValue: 5
+    m_MaxValue: 8
+  m_MaxSolarSystemHalfOrbitDistance: 150
+  m_StarSprites:
+  - {fileID: 21300000, guid: 4f04f39322b6f5045873ffffcab567d4, type: 3}
+  m_StarRadius:
+    m_MinValue: 3
+    m_MaxValue: 8
   m_SolarSystemNames:
   - Tashadon Harorox Region
   - The Epsilon Wanto Belt
   - The Helix Galadton Cluster
   - The Fat Oblejos Halo Zone
-  m_StarSprites:
-  - {fileID: 21300000, guid: aa262fedfba3e0d4abb230256fb7037e, type: 3}
-  m_MinPlanetsCount: 1
-  m_MaxPlanetsCount: 10
-  m_MinDistanceBetweenPlanets: 0.2
-  m_MaxDistanceBetweenPlanets: 1.5
-  m_MaxDistanceFromStar: 15

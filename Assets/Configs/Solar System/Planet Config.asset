@@ -13,27 +13,33 @@ MonoBehaviour:
   m_Name: Planet Config
   m_EditorClassIdentifier: 
   m_OrbitMaterial: {fileID: 2100000, guid: 80b614b5135278d47978959ff053bee5, type: 2}
-  m_OrbitColor: {r: 0, g: 0, b: 0, a: 0}
+  m_OrbitColor: {r: 1, g: 0, b: 0, a: 0}
   m_ShouldDrawOrbit: 1
-  m_MinOrbitSpeed: 1
-  m_MaxOrbitSpeed: 5
-  m_OrbitDrawWidth: 0.02
+  m_OrbitSpeed:
+    m_MinValue: 0
+    m_MaxValue: 0
+  m_OrbitDrawWidth: 0.05
   m_OrbitDrawPoints: 100
   m_IsMoveableOrbit: 0
+  m_ObjectRadius:
+    m_MinValue: 2
+    m_MaxValue: 15
   m_AllowedSprites:
   - {fileID: 21300000, guid: 4f04f39322b6f5045873ffffcab567d4, type: 3}
   m_PlanetPrefab: {fileID: 4302612713933445237, guid: 5e59a1e0a6a618d4cbbda1968f509256, type: 3}
-  m_MinPlanetRadius: 1
-  m_MaxPlanetRadius: 3
-  m_CloseRangeDistance: 3
-  m_MidRangeDistance: 5
+  m_CloseRangeDistance: 20
+  m_MidRangeDistance: 30
   m_MoonPrefab: {fileID: 1211443858589400438, guid: 9c774763916d86544b1337c6dbfc7c6f, type: 3}
   m_MoonConfig: {fileID: 11400000, guid: 83d0fa85959c85a4aa3ae1bfc2d281d8, type: 2}
-  m_MoonChance: 53
-  m_MultipleMoonChance: 1
+  m_MoonChance: 100
+  m_MultipleMoonChance: 100
   m_MaxMoons: 5
-  m_DistanceBetweenMoons: 0.5
-  m_MinDistanceFromMoonToPlanet: 0.5
+  m_DistanceBetweenMoons:
+    m_MinValue: 2
+    m_MaxValue: 10
+  m_DistanceFromPlanetToFirstMoon:
+    m_MinValue: 1
+    m_MaxValue: 4
   m_CloseRangePlanetColors:
   - {r: 0.7924528, g: 0.40828848, b: 0, a: 1}
   - {r: 0.7921569, g: 0.2368119, b: 0, a: 1}

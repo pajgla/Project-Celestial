@@ -11,8 +11,16 @@ namespace CelestialObjects
 
         public void Start()
         {
-            SolarSystem newSolarSystem = GameObject.Instantiate(m_SolarSystemConfig.GetSolarSystemPrefab());
+            SolarSystem newSolarSystem = GameObject.Instantiate(m_SolarSystemConfig.GetSolarSystemPrefab(), transform.position, Quaternion.identity);
             newSolarSystem.Initialize(m_SolarSystemConfig);
+        }
+
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Time.timeScale = 3;
+            }
         }
     }
 }
