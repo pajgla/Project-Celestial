@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace CelestialObjects
 {
-    [RequireComponent(typeof(SpriteRenderer))]
     public class Star : CelestialObjectBase
     {
     

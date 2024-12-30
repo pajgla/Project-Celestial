@@ -12,8 +12,8 @@ namespace CelestialObjects
         float m_CurrentAngleToParentObject = 0.0f;
         float m_OrbitSpeed = 1.0f;
         float m_OrbitRadius = 1.0f;
-        float m_Radius = 1.0f;
-        float m_TotalRadius = 1.0f;
+        float m_Diameter = 1.0f;
+        float m_RadiusWithMoons = 1.0f;
 
         bool m_IsMoveableOrbit = false;
         
@@ -23,9 +23,8 @@ namespace CelestialObjects
         public virtual void Initialize(CelestialObjectBase parentObject, CelestialObjectConfigBase config, float orbitRadius)
         {
             SetParentCelestialObject(parentObject);
-            m_OrbitRadius = orbitRadius + (GetRadius() / 2.0f);
+            m_OrbitRadius = orbitRadius;
             m_OrbitSpeed = config.GetOrbitSpeedRange().GetRandomValueFromRange();
-            m_CurrentAngleToParentObject = Random.Range(0.0f, 360.0f);
             m_IsMoveableOrbit = config.GetIsMoveableOrbit();
 
             if (config.GetShouldDrawOrbit())
@@ -111,17 +110,17 @@ namespace CelestialObjects
         public void SetParentCelestialObject(CelestialObjectBase celestialObject) { m_ParentCelestialObject = celestialObject; }
         public float GetOrbitRadius() { return m_OrbitRadius; }
         public void SetOrbitRadius(float value) { m_OrbitRadius = value; }
-        public float GetRadius() { return m_Radius; }
+        public float GetDiameter() { return m_Diameter; }
 
-        public void SetRadius(float value)
+        public void SetDiameter(float value)
         {
             transform.localScale = new Vector3(value, value, 1.0f);
-            m_Radius = value;
+            m_Diameter = value;
         }
 
-        //Radius containing other celestial object orbiting this one
-        public float GetTotalRadius() { return m_TotalRadius; }
-        public void SetTotalRadius(float value) { m_TotalRadius = value; }
+        //Diameter containing other celestial object orbiting this one
+        public float GetRadiusWithMoons() { return m_RadiusWithMoons; }
+        public void GetRadiusWithMoons(float value) { m_RadiusWithMoons = value; }
     }
 }
 

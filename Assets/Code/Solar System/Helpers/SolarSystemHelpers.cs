@@ -23,7 +23,7 @@ public static class SolarSystemHelpers
         
         //Radius
         float randomRadius = config.GetStarRadiusRange().GetRandomValueFromRange();
-        newStar.SetRadius(randomRadius);
+        newStar.SetDiameter(randomRadius);
         
         
         return newStar;
@@ -33,7 +33,7 @@ public static class SolarSystemHelpers
     {
         Planet newPlanet = GameObject.Instantiate(config.GetPlanetPrefab());
         
-        //Chose color
+        //Choose color
         SpriteRenderer spriteRenderer = newPlanet.GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
         {
@@ -44,21 +44,61 @@ public static class SolarSystemHelpers
         
         spriteRenderer.color = config.GetRandomColor(newPlanet);
         
+        //Random angle to the star
+        newPlanet.SetCurrentAngleToParentObject(Random.Range(0.0f, 360.0f));
+        
         //Planet size
-        float randomRadius = config.GetObjectRadiusRange().GetRandomValueFromRange();
-        newPlanet.SetRadius(randomRadius);
+        float planetRadius = 0;
+        
+        float giantPlanetChance = Random.Range(0, 101);
+        float requiredGiantPlanetChance = config.GetGiantPlanetChance();
+        if (giantPlanetChance <= requiredGiantPlanetChance)
+        {
+            planetRadius = config.GetGiantPlanetRadius().GetRandomValueFromRange();
+            newPlanet.SetIsGiantPlanet(true);
+            Debug.Log("Spawned a giant!");
+        }
+        else
+        {
+            planetRadius = config.GetObjectRadiusRange().GetRandomValueFromRange();   
+        }
+        
+        newPlanet.SetDiameter(planetRadius);
+        
+        //Generate Moons
+        newPlanet.GenerateMoons(config);
+        newPlanet.CalculateRadiusWithMoons();
         
         return newPlanet;
     }
 
+    public static Moon GenerateNewMoon(MoonConfig config)
+    {
+        Moon newMoon = GameObject.Instantiate(config.GetMoonPrefab());
+
+        float randomRadius = config.GetObjectRadiusRange().GetRandomValueFromRange();
+        newMoon.SetDiameter(randomRadius);
+        
+        return newMoon;
+    }
+
     public static void RotateCelestialObject(CelestialObjectBase objectToRotate)
     {
+        //Problem here is that the speed of the planet changes if we simply use GetOrbitSpeed() since not all planets
+        //have the same circumference of the orbit, thus even with the same speed set, planets will travel
+        //at different speed based on their orbit circumference. The fix is to calculate angular speed instead
+        
+        float orbitRadius = objectToRotate.GetOrbitRadius();
+        float linearOrbitSpeed = objectToRotate.GetOrbitSpeed();
+        
+        //Angular velocity in radians per second
+        float angularOrbitSpeed = linearOrbitSpeed / orbitRadius;
+        
         float currentOrbitAngle = objectToRotate.GetCurrentAngleToParentObject();
-        float orbitSpeed = objectToRotate.GetOrbitSpeed();
-        objectToRotate.SetCurrentAngleToParentObject(currentOrbitAngle + orbitSpeed * Time.deltaTime);
+        currentOrbitAngle += angularOrbitSpeed * Mathf.Rad2Deg * Time.deltaTime;
+        objectToRotate.SetCurrentAngleToParentObject(currentOrbitAngle);
 
         Vector3 parentCelestialObjectPosition = objectToRotate.GetParentCelestialObject().transform.position;
-        float orbitRadius = objectToRotate.GetOrbitRadius();
         float angleInRadians = currentOrbitAngle * Mathf.Deg2Rad;
         
         Vector3 newPosition = new Vector3(

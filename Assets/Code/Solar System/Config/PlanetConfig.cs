@@ -15,11 +15,14 @@ namespace CelestialObjects
         [SerializeField] float m_CloseRangeDistance = 5f;
         [SerializeField] float m_MidRangeDistance = 10f;
 
+        [Header("Giant Planet Settings")]
+        [SerializeField, Range(0, 100)] int m_GiantPlanetChance;
+        [SerializeField] Core.RangeValueFloat m_GiantPlanetRadius;
+
         [Header("Moon Settings")]
-        [SerializeField] Moon m_MoonPrefab;
         [SerializeField] MoonConfig m_MoonConfig;
-        [SerializeField, Range(0.0f, 100.0f)] float m_MoonChance = 5f;
-        [SerializeField, Range(0.0f, 100.0f)] float m_MultipleMoonChance = 1f;
+        [SerializeField, Range(0, 100)] int m_MoonChance = 5;
+        [SerializeField, Range(0, 100)] int m_MultipleMoonChance = 1;
         [SerializeField] int m_MaxMoons = 5;
         [SerializeField] Core.RangeValueFloat m_DistanceBetweenMoons;
         [SerializeField] Core.RangeValueFloat m_DistanceFromPlanetToFirstMoon;
@@ -64,14 +67,15 @@ namespace CelestialObjects
         public Color[] GetMidRangePlanetColors() { return m_MidRangePlanetColors; }
         public Color[] GetFarRangePlanetColors() { return m_FarRangePlanetColors; }
         public Planet GetPlanetPrefab() { return m_PlanetPrefab; }
-        public float GetMoonChance() { return m_MoonChance; }
-        public Moon GetMoonPrefab() { return m_MoonPrefab; }
-        public float GetMultipleMoonChance() { return m_MultipleMoonChance; }
+        public int GetMoonChance() { return m_MoonChance; }
+        public int GetMultipleMoonChance() { return m_MultipleMoonChance; }
         public int GetMaxMoons() { return m_MaxMoons; }
         public MoonConfig GetMoonConfig() { return m_MoonConfig; }
 
         public Core.RangeValueFloat GetDistanceBetweenMoonsRange() { return m_DistanceBetweenMoons; }
 
         public Core.RangeValueFloat GetDistanceFromPlanetToFirstMoonRange() { return m_DistanceFromPlanetToFirstMoon; }
+        public int GetGiantPlanetChance() { return m_GiantPlanetChance; }
+        public Core.RangeValueFloat GetGiantPlanetRadius() { return m_GiantPlanetRadius; }
     }
 }

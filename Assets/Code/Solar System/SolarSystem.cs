@@ -16,7 +16,7 @@ namespace CelestialObjects
             m_Star = SolarSystemHelpers.GenerateNewStar(config, transform);
 
             int planetsToCreate = config.GetPlanetCount().GetRandomValueFromRange();
-            float distanceFromStar = (m_Star.GetRadius() / 2.0f) + config.GetFirstPlanetDistanceFromStarRange().GetRandomValueFromRange();
+            float distanceFromStar = (m_Star.GetDiameter() / 2.0f) + config.GetFirstPlanetDistanceFromStarRange().GetRandomValueFromRange();
             
             for (int i = 0; i < planetsToCreate; i++)
             {
@@ -28,9 +28,9 @@ namespace CelestialObjects
 
                 Planet newPlanet = SolarSystemHelpers.GenerateNewPlanet(config.GetPlanetConfig());
                 newPlanet.transform.parent = transform;
-                newPlanet.Initialize(m_Star, config.GetPlanetConfig(), distanceFromStar);
-                distanceFromStar += newPlanet.GetTotalRadius() + config.GetDistanceBetweenPlanetsRange().GetRandomValueFromRange();
-                
+                float orbitRadius = distanceFromStar + newPlanet.GetRadiusWithMoons();
+                newPlanet.Initialize(m_Star, config.GetPlanetConfig(), orbitRadius);
+                distanceFromStar += newPlanet.GetRadiusWithMoons() * 2f + config.GetDistanceBetweenPlanetsRange().GetRandomValueFromRange();
                 m_Planets.Add(newPlanet.gameObject);
             }
         }

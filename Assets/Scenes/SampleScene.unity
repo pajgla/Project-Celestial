@@ -229,7 +229,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 1189.9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -267,14 +267,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 16
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
+  m_RefResolutionX: 1280
+  m_RefResolutionY: 720
   m_UpscaleRT: 0
   m_PixelSnapping: 0
   m_CropFrameX: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DebugSprite: {fileID: 21300000, guid: 4fc89cc5db7c8b94d91fc50fe240ed8a, type: 3}
   m_SpriteColor: {r: 1, g: 0, b: 0, a: 1}
-  m_SpawnAmount: 10
+  m_SpawnAmount: 120
   m_SpawnNegative: 1
 --- !u!4 &2070611786
 Transform:
