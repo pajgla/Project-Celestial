@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace CelestialObjects
+namespace SolarSystem
 {
     public class CelestialObjectConfigBase : ScriptableObject
     {
@@ -15,8 +16,9 @@ namespace CelestialObjects
         [SerializeField] int m_OrbitDrawPoints = 100;
         [SerializeField] bool m_IsMoveableOrbit = false;
 
+        
         [Header("Radius")] 
-        [SerializeField] Core.RangeValueFloat m_ObjectRadius;
+        [FormerlySerializedAs("m_ObjectRadius"), SerializeField] Core.RangeValueFloat m_ObjectDiameter;
         
         public virtual Color GetRandomColor(CelestialObjectBase celestialObject)
         {
@@ -24,7 +26,7 @@ namespace CelestialObjects
         }
         
         //Getters
-        public Core.RangeValueFloat GetObjectRadiusRange() { return m_ObjectRadius; }
+        public Core.RangeValueFloat GetObjectDiameterRange() { return m_ObjectDiameter; }
         public Material GetOrbitMaterial() { return m_OrbitMaterial; }
         public Color GetOrbitColor() { return m_OrbitColor; }
         public bool GetShouldDrawOrbit() { return m_ShouldDrawOrbit; }

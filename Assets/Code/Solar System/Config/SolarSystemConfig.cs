@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace CelestialObjects
+namespace SolarSystem
 {
     [CreateAssetMenu(fileName = "New Solar System Config", menuName = "Config/Solar System Config")]
     public class SolarSystemConfig : ScriptableObject
@@ -19,7 +19,7 @@ namespace CelestialObjects
         [SerializeField] Core.RangeValueInt m_PlanetCount;
         [SerializeField] Core.RangeValueFloat m_DistanceBetweenPlanets;
         [SerializeField] Core.RangeValueFloat m_FirstPlanetDistanceFromStar;
-        [SerializeField] float m_MaxSolarSystemHalfOrbitDistance = 15f;
+        [FormerlySerializedAs("m_MaxSolarSystemHalfOrbitDistance")] [SerializeField] float m_MaxSolarSystemRadius = 15f;
         
         [Header("Star configs")]
         [SerializeField] Sprite[] m_StarSprites;
@@ -57,7 +57,7 @@ namespace CelestialObjects
         public Core.RangeValueInt GetPlanetCount() { return m_PlanetCount; }
 
         public Core.RangeValueFloat GetDistanceBetweenPlanetsRange() { return m_DistanceBetweenPlanets; }
-        public float GetMaxSolarSystemHalfOrbitDistance() { return m_MaxSolarSystemHalfOrbitDistance; }
+        public float GetMaxSolarSystemRadius() { return m_MaxSolarSystemRadius; }
 
         public Core.RangeValueFloat GetFirstPlanetDistanceFromStarRange() { return m_FirstPlanetDistanceFromStar; }
         public Core.RangeValueFloat GetStarRadiusRange() { return m_StarRadius; }

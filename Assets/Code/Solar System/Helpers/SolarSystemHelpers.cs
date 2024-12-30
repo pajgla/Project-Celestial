@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using CelestialObjects;
+using SolarSystem;
 using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
 
@@ -28,55 +28,12 @@ public static class SolarSystemHelpers
         
         return newStar;
     }
-    
-    public static Planet GenerateNewPlanet(PlanetConfig config)
-    {
-        Planet newPlanet = GameObject.Instantiate(config.GetPlanetPrefab());
-        
-        //Choose color
-        SpriteRenderer spriteRenderer = newPlanet.GetComponent<SpriteRenderer>();
-        if (spriteRenderer == null)
-        {
-            GameObject.Destroy(newPlanet.gameObject);
-            Debug.LogError("Planet Prefab doesn't have SpriteRenderer");
-            return null;
-        }
-        
-        spriteRenderer.color = config.GetRandomColor(newPlanet);
-        
-        //Random angle to the star
-        newPlanet.SetCurrentAngleToParentObject(Random.Range(0.0f, 360.0f));
-        
-        //Planet size
-        float planetRadius = 0;
-        
-        float giantPlanetChance = Random.Range(0, 101);
-        float requiredGiantPlanetChance = config.GetGiantPlanetChance();
-        if (giantPlanetChance <= requiredGiantPlanetChance)
-        {
-            planetRadius = config.GetGiantPlanetRadius().GetRandomValueFromRange();
-            newPlanet.SetIsGiantPlanet(true);
-            Debug.Log("Spawned a giant!");
-        }
-        else
-        {
-            planetRadius = config.GetObjectRadiusRange().GetRandomValueFromRange();   
-        }
-        
-        newPlanet.SetDiameter(planetRadius);
-        
-        //Generate Moons
-        newPlanet.GenerateMoons(config);
-        newPlanet.CalculateRadiusWithMoons();
-        
-        return newPlanet;
-    }
 
     public static Moon GenerateNewMoon(MoonConfig config)
     {
         Moon newMoon = GameObject.Instantiate(config.GetMoonPrefab());
 
-        float randomRadius = config.GetObjectRadiusRange().GetRandomValueFromRange();
+        float randomRadius = config.GetObjectDiameterRange().GetRandomValueFromRange();
         newMoon.SetDiameter(randomRadius);
         
         return newMoon;
@@ -113,5 +70,25 @@ public static class SolarSystemHelpers
     public static void DrawOrbit(CelestialObjectConfigBase config)
     {
         
+    }
+
+    public static ECelestialRegionType GetCelestialRegionTypeForOrbitRadius(CelestialRegionConfig config, float orbitRadius)
+    {
+        if (config == null)
+        {
+            Debug.LogError("CelestialRegionConfig is null");
+            return ECelestialRegionType.Inner;
+        }
+        
+        if (orbitRadius <= config.GetInnerRegionRadius())
+        {
+            return ECelestialRegionType.Inner;
+        }
+        else if (orbitRadius <= config.GetMiddleRegionRadius())
+        {
+            return ECelestialRegionType.Middle;
+        }
+
+        return ECelestialRegionType.Outer;
     }
 }

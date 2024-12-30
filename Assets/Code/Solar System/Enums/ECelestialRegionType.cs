@@ -4,8 +4,11 @@ using UnityEngine;
 
 namespace SolarSystem
 {
-    public class Star : CelestialObjectBase
+    public enum ECelestialRegionType
     {
-    
+        Inner,
+        Middle,
+        Outer
     }
 }
+

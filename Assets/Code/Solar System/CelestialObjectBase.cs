@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
-namespace CelestialObjects
+namespace SolarSystem
 {
     [RequireComponent(typeof(SpriteRenderer))]
     public class CelestialObjectBase : MonoBehaviour

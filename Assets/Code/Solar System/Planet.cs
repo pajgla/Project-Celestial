@@ -2,12 +2,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace CelestialObjects
+namespace SolarSystem
 {
     public class Planet : CelestialObjectBase
     {
         List<Moon> m_Moons = new List<Moon>();
-
+        
+        [SerializeField] EPlanetType m_PlanetType;
         bool m_IsGiantPlanet = false;
         
         public override void Initialize(CelestialObjectBase parentObject, CelestialObjectConfigBase config, float orbitRadius)
@@ -81,6 +82,8 @@ namespace CelestialObjects
         //Getters
         public bool GetIsGiantPlanet() { return m_IsGiantPlanet; }
         public void SetIsGiantPlanet(bool value) { m_IsGiantPlanet = value; }
+        public EPlanetType GetPlanetType() { return m_PlanetType; }
+        public void SetPlanetType(EPlanetType value) { m_PlanetType = value; }
     }
 }
 

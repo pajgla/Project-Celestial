@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CelestialObjects
+namespace SolarSystem
 {
     public class SolarSystemGenerator : MonoBehaviour
     {

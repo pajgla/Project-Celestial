@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace CelestialObjects
+namespace SolarSystem
 {
     public class Moon : CelestialObjectBase
     {

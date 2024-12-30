@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace CelestialObjects
+namespace SolarSystem
 {
     [CreateAssetMenu(fileName = "New Planet Config", menuName = "Config/Planet Config")]
     public class PlanetConfig : CelestialObjectConfigBase
     {
+        [Header("Celestial Region Settings")]
+        [SerializeField] CelestialRegionConfig m_CelestialRegionConfig;
+        
+        [Header("Planet Color Settings")]
+        [SerializeField] CelestialObjectColorConfig m_CelestialObjectColorConfig;
+        
         [SerializeField] Sprite[] m_AllowedSprites;
         [SerializeField] Planet m_PlanetPrefab;
 
@@ -17,7 +23,7 @@ namespace CelestialObjects
 
         [Header("Giant Planet Settings")]
         [SerializeField, Range(0, 100)] int m_GiantPlanetChance;
-        [SerializeField] Core.RangeValueFloat m_GiantPlanetRadius;
+        [FormerlySerializedAs("m_GiantPlanetRadius")] [SerializeField] Core.RangeValueFloat m_GiantPlanetDiameter;
 
         [Header("Moon Settings")]
         [SerializeField] MoonConfig m_MoonConfig;
@@ -76,6 +82,8 @@ namespace CelestialObjects
 
         public Core.RangeValueFloat GetDistanceFromPlanetToFirstMoonRange() { return m_DistanceFromPlanetToFirstMoon; }
         public int GetGiantPlanetChance() { return m_GiantPlanetChance; }
-        public Core.RangeValueFloat GetGiantPlanetRadius() { return m_GiantPlanetRadius; }
+        public Core.RangeValueFloat GetGiantPlanetDiameterRange() { return m_GiantPlanetDiameter; }
+        public CelestialRegionConfig GetCelestialRegionConfig() { return m_CelestialRegionConfig; }
+        public CelestialObjectColorConfig GetCelestialObjectColorConfig() { return m_CelestialObjectColorConfig; }
     }
 }

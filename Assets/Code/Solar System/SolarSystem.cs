@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace CelestialObjects
+namespace SolarSystem
 {
     public class SolarSystem : MonoBehaviour
     {
@@ -20,13 +20,13 @@ namespace CelestialObjects
             
             for (int i = 0; i < planetsToCreate; i++)
             {
-                if (distanceFromStar > config.GetMaxSolarSystemHalfOrbitDistance())
+                if (distanceFromStar > config.GetMaxSolarSystemRadius())
                 {
                     //We have broken the max distance from the star, so return
                     break;
                 }
 
-                Planet newPlanet = SolarSystemHelpers.GenerateNewPlanet(config.GetPlanetConfig());
+                Planet newPlanet = PlanetFactory.GenerateNewPlanet(config.GetPlanetConfig(), distanceFromStar);
                 newPlanet.transform.parent = transform;
                 float orbitRadius = distanceFromStar + newPlanet.GetRadiusWithMoons();
                 newPlanet.Initialize(m_Star, config.GetPlanetConfig(), orbitRadius);

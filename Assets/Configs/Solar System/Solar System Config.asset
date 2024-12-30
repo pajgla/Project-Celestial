@@ -24,7 +24,7 @@ MonoBehaviour:
   m_FirstPlanetDistanceFromStar:
     m_MinValue: 80
     m_MaxValue: 240
-  m_MaxSolarSystemHalfOrbitDistance: 15000
+  m_MaxSolarSystemRadius: 3000
   m_StarSprites:
   - {fileID: 21300000, guid: 4f04f39322b6f5045873ffffcab567d4, type: 3}
   m_StarRadius:
