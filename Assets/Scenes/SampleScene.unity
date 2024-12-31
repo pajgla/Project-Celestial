@@ -294,12 +294,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DefaultZPosition: -10
-  m_CameraMoveSpeed: 1.4
+  m_CameraMoveSpeed: 2
   m_CameraSmoothing: 0.2
   m_ZoomSpeed: 1
   m_MinZoom: 100
   m_MaxZoom: 2000
-  m_ZoomSmoothing: 0.05
+  m_ZoomSmoothing: 0.08
   m_InitialZoom: 2000
 --- !u!1 &800325677
 GameObject:

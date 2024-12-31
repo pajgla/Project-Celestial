@@ -20,7 +20,7 @@ namespace Core.Camera
         [SerializeField] float m_InitialZoom = 2000f;
 
         Vector3 m_TargetPosition;
-        Vector3 m_Velocity = Vector3.zero;
+        Vector3 m_MoveVelocity = Vector3.zero;
         Vector2 m_LastMousePosition;
         float m_TargetZoom;
         bool m_IsDragging = false;
@@ -73,7 +73,7 @@ namespace Core.Camera
                 UpdateCameraTargetPosition();
             }
             
-            Vector3 newPosition = Vector3.SmoothDamp(transform.position, m_TargetPosition, ref m_Velocity, m_CameraSmoothing);
+            Vector3 newPosition = Vector3.SmoothDamp(transform.position, m_TargetPosition, ref m_MoveVelocity, m_CameraSmoothing);
             newPosition.z = m_DefaultZPosition;
             transform.position = newPosition;
         }
