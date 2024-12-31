@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 615f5488037eab64ead6fabdd40d17d6, type: 3}
+  m_Name: Planet Type Resource Rarity Config
+  m_EditorClassIdentifier: 
+  m_ResourceRarities:
+  - m_PlanetType: 0
+    m_ResourceRarities:
+    - m_ResourceType: 0
+      m_ResourceRarity: 0
+    - m_ResourceType: 1
+      m_ResourceRarity: 1
+    - m_ResourceType: 5
+      m_ResourceRarity: 3
+  - m_PlanetType: 1
+    m_ResourceRarities:
+    - m_ResourceType: 0
+      m_ResourceRarity: 2
+    - m_ResourceType: 2
+      m_ResourceRarity: 1
+    - m_ResourceType: 5
+      m_ResourceRarity: 2
+    - m_ResourceType: 6
+      m_ResourceRarity: 3
+  - m_PlanetType: 2
+    m_ResourceRarities:
+    - m_ResourceType: 0
+      m_ResourceRarity: 0
+  - m_PlanetType: 3
+    m_ResourceRarities:
+    - m_ResourceType: 0
+      m_ResourceRarity: 2
+    - m_ResourceType: 1
+      m_ResourceRarity: 1
+    - m_ResourceType: 2
+      m_ResourceRarity: 3
+    - m_ResourceType: 5
+      m_ResourceRarity: 2
+  - m_PlanetType: 4
+    m_ResourceRarities:
+    - m_ResourceType: 0
+      m_ResourceRarity: 1
+    - m_ResourceType: 1
+      m_ResourceRarity: 1
+    - m_ResourceType: 2
+      m_ResourceRarity: 2
+    - m_ResourceType: 3
+      m_ResourceRarity: 0
+    - m_ResourceType: 4
+      m_ResourceRarity: 0
+  - m_PlanetType: 5
+    m_ResourceRarities:
+    - m_ResourceType: 1
+      m_ResourceRarity: 1
+    - m_ResourceType: 3
+      m_ResourceRarity: 1
+    - m_ResourceType: 4
+      m_ResourceRarity: 0
+  - m_PlanetType: 6
+    m_ResourceRarities:
+    - m_ResourceType: 1
+      m_ResourceRarity: 1
+    - m_ResourceType: 3
+      m_ResourceRarity: 2
+    - m_ResourceType: 4
+      m_ResourceRarity: 0
+    - m_ResourceType: 2
+      m_ResourceRarity: 2
+  - m_PlanetType: 7
+    m_ResourceRarities:
+    - m_ResourceType: 0
+      m_ResourceRarity: 2
+    - m_ResourceType: 1
+      m_ResourceRarity: 2
+  - m_PlanetType: 8
+    m_ResourceRarities:
+    - m_ResourceType: 2
+      m_ResourceRarity: 1
+    - m_ResourceType: 6
+      m_ResourceRarity: 2
+    - m_ResourceType: 5
+      m_ResourceRarity: 1
+  - m_PlanetType: 9
+    m_ResourceRarities:
+    - m_ResourceType: 1
+      m_ResourceRarity: 0
+    - m_ResourceType: 5
+      m_ResourceRarity: 2
+    - m_ResourceType: 6
+      m_ResourceRarity: 2
+  - m_PlanetType: 10
+    m_ResourceRarities:
+    - m_ResourceType: 4
+      m_ResourceRarity: 0
+    - m_ResourceType: 6
+      m_ResourceRarity: 3
+    - m_ResourceType: 2
+      m_ResourceRarity: 3

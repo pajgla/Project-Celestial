@@ -14,6 +14,9 @@ namespace SolarSystem
         [Header("Planet Color Settings")]
         [SerializeField] CelestialObjectColorConfig m_CelestialObjectColorConfig;
         
+        [Header("Resource Rarities Settings")]
+        [SerializeField] PlanetTypeResourceRarityConfig m_ResourceRarityConfig;
+        
         [SerializeField] Sprite[] m_AllowedSprites;
         [SerializeField] Planet m_PlanetPrefab;
 
@@ -85,5 +88,6 @@ namespace SolarSystem
         public Core.Helpers.RangeValueFloat GetGiantPlanetDiameterRange() { return m_GiantPlanetDiameter; }
         public CelestialRegionConfig GetCelestialRegionConfig() { return m_CelestialRegionConfig; }
         public CelestialObjectColorConfig GetCelestialObjectColorConfig() { return m_CelestialObjectColorConfig; }
+        public PlanetTypeResourceRarityConfig GetResourceRarityConfig() { return m_ResourceRarityConfig; }
     }
 }
