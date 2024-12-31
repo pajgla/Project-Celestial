@@ -1,0 +1,54 @@
+{
+    "name": "GameplayActionMaps",
+    "maps": [
+        {
+            "name": "Default",
+            "id": "6d25e992-9f91-48a2-b755-9ce8a7d46d19",
+            "actions": [
+                {
+                    "name": "Mouse Position",
+                    "type": "Value",
+                    "id": "9411ec01-4a07-43e5-a1f1-a4d53d3a24b1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "CameraMove",
+                    "type": "Button",
+                    "id": "740141e5-8852-4d89-8b33-36b5d0a52edd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3f417e1c-36a1-4c62-b2c9-cc2fa4fe7620",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mouse Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e71e5f7-f877-4ab8-ab31-6b0cb94ec264",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

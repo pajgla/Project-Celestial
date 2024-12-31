@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Core
+namespace Core.Helpers
 {
     public abstract class RangeValueBase<T>
     {

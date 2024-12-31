@@ -11,14 +11,14 @@ namespace SolarSystem
         [SerializeField] Material m_OrbitMaterial;
         [SerializeField] Color m_OrbitColor;
         [SerializeField] bool m_ShouldDrawOrbit = true;
-        [SerializeField] Core.RangeValueFloat m_OrbitSpeed;
+        [SerializeField] Core.Helpers.RangeValueFloat m_OrbitSpeed;
         [SerializeField] float m_OrbitDrawWidth = 0.02f;
         [SerializeField] int m_OrbitDrawPoints = 100;
         [SerializeField] bool m_IsMoveableOrbit = false;
 
         
         [Header("Radius")] 
-        [FormerlySerializedAs("m_ObjectRadius"), SerializeField] Core.RangeValueFloat m_ObjectDiameter;
+        [FormerlySerializedAs("m_ObjectRadius"), SerializeField] Core.Helpers.RangeValueFloat m_ObjectDiameter;
         
         public virtual Color GetRandomColor(CelestialObjectBase celestialObject)
         {
@@ -26,12 +26,12 @@ namespace SolarSystem
         }
         
         //Getters
-        public Core.RangeValueFloat GetObjectDiameterRange() { return m_ObjectDiameter; }
+        public Core.Helpers.RangeValueFloat GetObjectDiameterRange() { return m_ObjectDiameter; }
         public Material GetOrbitMaterial() { return m_OrbitMaterial; }
         public Color GetOrbitColor() { return m_OrbitColor; }
         public bool GetShouldDrawOrbit() { return m_ShouldDrawOrbit; }
 
-        public Core.RangeValueFloat GetOrbitSpeedRange() { return m_OrbitSpeed; }
+        public Core.Helpers.RangeValueFloat GetOrbitSpeedRange() { return m_OrbitSpeed; }
 
         public float GetOrbitDrawWidth() { return m_OrbitDrawWidth; }
         public int GetOrbitDrawPoints() { return m_OrbitDrawPoints; }

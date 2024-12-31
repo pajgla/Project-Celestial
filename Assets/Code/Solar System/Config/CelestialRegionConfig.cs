@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Core;
+using Core.Helpers;
 using UnityEngine.Serialization;
 
 namespace SolarSystem

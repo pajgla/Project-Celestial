@@ -16,14 +16,14 @@ namespace SolarSystem
         [SerializeField] Star m_StarPrefab;
 
         [Header("Planet configs")]
-        [SerializeField] Core.RangeValueInt m_PlanetCount;
-        [SerializeField] Core.RangeValueFloat m_DistanceBetweenPlanets;
-        [SerializeField] Core.RangeValueFloat m_FirstPlanetDistanceFromStar;
+        [SerializeField] Core.Helpers.RangeValueInt m_PlanetCount;
+        [SerializeField] Core.Helpers.RangeValueFloat m_DistanceBetweenPlanets;
+        [SerializeField] Core.Helpers.RangeValueFloat m_FirstPlanetDistanceFromStar;
         [FormerlySerializedAs("m_MaxSolarSystemHalfOrbitDistance")] [SerializeField] float m_MaxSolarSystemRadius = 15f;
         
         [Header("Star configs")]
         [SerializeField] Sprite[] m_StarSprites;
-        [SerializeField] Core.RangeValueFloat m_StarRadius;
+        [SerializeField] Core.Helpers.RangeValueFloat m_StarRadius;
         
         [SerializeField] string[] m_SolarSystemNames;
 
@@ -54,12 +54,12 @@ namespace SolarSystem
             return m_StarSprites;
         }
 
-        public Core.RangeValueInt GetPlanetCount() { return m_PlanetCount; }
+        public Core.Helpers.RangeValueInt GetPlanetCount() { return m_PlanetCount; }
 
-        public Core.RangeValueFloat GetDistanceBetweenPlanetsRange() { return m_DistanceBetweenPlanets; }
+        public Core.Helpers.RangeValueFloat GetDistanceBetweenPlanetsRange() { return m_DistanceBetweenPlanets; }
         public float GetMaxSolarSystemRadius() { return m_MaxSolarSystemRadius; }
 
-        public Core.RangeValueFloat GetFirstPlanetDistanceFromStarRange() { return m_FirstPlanetDistanceFromStar; }
-        public Core.RangeValueFloat GetStarRadiusRange() { return m_StarRadius; }
+        public Core.Helpers.RangeValueFloat GetFirstPlanetDistanceFromStarRange() { return m_FirstPlanetDistanceFromStar; }
+        public Core.Helpers.RangeValueFloat GetStarRadiusRange() { return m_StarRadius; }
     }
 }

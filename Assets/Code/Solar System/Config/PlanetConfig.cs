@@ -23,15 +23,15 @@ namespace SolarSystem
 
         [Header("Giant Planet Settings")]
         [SerializeField, Range(0, 100)] int m_GiantPlanetChance;
-        [FormerlySerializedAs("m_GiantPlanetRadius")] [SerializeField] Core.RangeValueFloat m_GiantPlanetDiameter;
+        [FormerlySerializedAs("m_GiantPlanetRadius")] [SerializeField] Core.Helpers.RangeValueFloat m_GiantPlanetDiameter;
 
         [Header("Moon Settings")]
         [SerializeField] MoonConfig m_MoonConfig;
         [SerializeField, Range(0, 100)] int m_MoonChance = 5;
         [SerializeField, Range(0, 100)] int m_MultipleMoonChance = 1;
         [SerializeField] int m_MaxMoons = 5;
-        [SerializeField] Core.RangeValueFloat m_DistanceBetweenMoons;
-        [SerializeField] Core.RangeValueFloat m_DistanceFromPlanetToFirstMoon;
+        [SerializeField] Core.Helpers.RangeValueFloat m_DistanceBetweenMoons;
+        [SerializeField] Core.Helpers.RangeValueFloat m_DistanceFromPlanetToFirstMoon;
         
         [Header("Color Settings")]
         [SerializeField] Color[] m_CloseRangePlanetColors;
@@ -78,11 +78,11 @@ namespace SolarSystem
         public int GetMaxMoons() { return m_MaxMoons; }
         public MoonConfig GetMoonConfig() { return m_MoonConfig; }
 
-        public Core.RangeValueFloat GetDistanceBetweenMoonsRange() { return m_DistanceBetweenMoons; }
+        public Core.Helpers.RangeValueFloat GetDistanceBetweenMoonsRange() { return m_DistanceBetweenMoons; }
 
-        public Core.RangeValueFloat GetDistanceFromPlanetToFirstMoonRange() { return m_DistanceFromPlanetToFirstMoon; }
+        public Core.Helpers.RangeValueFloat GetDistanceFromPlanetToFirstMoonRange() { return m_DistanceFromPlanetToFirstMoon; }
         public int GetGiantPlanetChance() { return m_GiantPlanetChance; }
-        public Core.RangeValueFloat GetGiantPlanetDiameterRange() { return m_GiantPlanetDiameter; }
+        public Core.Helpers.RangeValueFloat GetGiantPlanetDiameterRange() { return m_GiantPlanetDiameter; }
         public CelestialRegionConfig GetCelestialRegionConfig() { return m_CelestialRegionConfig; }
         public CelestialObjectColorConfig GetCelestialObjectColorConfig() { return m_CelestialObjectColorConfig; }
     }
