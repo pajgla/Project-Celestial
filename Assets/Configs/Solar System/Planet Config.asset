@@ -37,8 +37,8 @@ MonoBehaviour:
     m_MinValue: 120
     m_MaxValue: 120
   m_MoonConfig: {fileID: 11400000, guid: 83d0fa85959c85a4aa3ae1bfc2d281d8, type: 2}
-  m_MoonChance: 20
-  m_MultipleMoonChance: 30
+  m_MoonChance: 15
+  m_MultipleMoonChance: 35
   m_MaxMoons: 5
   m_DistanceBetweenMoons:
     m_MinValue: 5

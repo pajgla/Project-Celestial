@@ -4,7 +4,7 @@ using UnityEngine;
 using Core.Helpers;
 using UnityEngine.Serialization;
 
-namespace SolarSystem
+namespace SolarSystem.Configs
 {
     [CreateAssetMenu(fileName = "New Celestial Region Config", menuName = "Config/Celestial Region Config")]
     public class CelestialRegionConfig : ScriptableObject

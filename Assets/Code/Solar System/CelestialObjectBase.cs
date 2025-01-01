@@ -5,6 +5,8 @@ namespace SolarSystem
     [RequireComponent(typeof(SpriteRenderer))]
     public class CelestialObjectBase : MonoBehaviour
     {
+        Resources.ResourcesHolder m_ResourcesHolder = new Resources.ResourcesHolder();
+        
         float m_CurrentAngleToParentObject = 0.0f;
         float m_OrbitSpeed = 1.0f;
         float m_OrbitRadius = 1.0f;
@@ -16,7 +18,7 @@ namespace SolarSystem
         //Sun for the planet, and planet for the moons - around what we rotate
         CelestialObjectBase m_ParentCelestialObject;
 
-        public virtual void Initialize(CelestialObjectBase parentObject, CelestialObjectConfigBase config, float orbitRadius)
+        public virtual void Initialize(CelestialObjectBase parentObject, Configs.CelestialObjectConfigBase config, float orbitRadius)
         {
             SetParentCelestialObject(parentObject);
             m_OrbitRadius = orbitRadius;
@@ -44,7 +46,7 @@ namespace SolarSystem
             }
         }
 
-        private void DrawOrbit(CelestialObjectConfigBase config)
+        private void DrawOrbit(Configs.CelestialObjectConfigBase config)
         {
             LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
             lineRenderer.loop = true;
@@ -126,8 +128,9 @@ namespace SolarSystem
         }
 
         //Diameter containing other celestial object orbiting this one
-        public float GetRadiusWithMoons() { return m_RadiusWithMoons; }
-        public void GetRadiusWithMoons(float value) { m_RadiusWithMoons = value; }
+        public float GetRadiusWithMoons() => m_RadiusWithMoons;
+        public void GetRadiusWithMoons(float value) => m_RadiusWithMoons = value;
+        public Resources.ResourcesHolder GetResourcesHolder() => m_ResourcesHolder;
     }
 }
 

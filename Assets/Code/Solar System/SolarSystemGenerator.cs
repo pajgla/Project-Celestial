@@ -7,7 +7,7 @@ namespace SolarSystem
 {
     public class SolarSystemGenerator : MonoBehaviour
     {
-        [SerializeField] SolarSystemConfig m_SolarSystemConfig;
+        [SerializeField] Configs.SolarSystemConfig m_SolarSystemConfig;
 
         public void Start()
         {

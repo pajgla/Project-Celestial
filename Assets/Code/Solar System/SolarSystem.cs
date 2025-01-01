@@ -11,7 +11,7 @@ namespace SolarSystem
         Star m_Star;
         List<GameObject> m_Planets = new List<GameObject>();
     
-        public void Initialize(SolarSystemConfig config)
+        public void Initialize(Configs.SolarSystemConfig config)
         {
             m_Star = SolarSystemHelpers.GenerateNewStar(config, transform);
 
@@ -26,7 +26,7 @@ namespace SolarSystem
                     break;
                 }
 
-                Planet newPlanet = PlanetFactory.GenerateNewPlanet(config.GetPlanetConfig(), distanceFromStar);
+                Planet newPlanet = Factory.PlanetFactory.GenerateNewPlanet(config.GetPlanetConfig(), distanceFromStar);
                 newPlanet.transform.parent = transform;
                 float orbitRadius = distanceFromStar + newPlanet.GetRadiusWithMoons();
                 newPlanet.Initialize(m_Star, config.GetPlanetConfig(), orbitRadius);

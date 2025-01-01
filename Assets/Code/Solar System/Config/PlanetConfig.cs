@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using Resources;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace SolarSystem
+namespace SolarSystem.Configs
 {
     [CreateAssetMenu(fileName = "New Planet Config", menuName = "Config/Planet Config")]
     public class PlanetConfig : CelestialObjectConfigBase
@@ -13,7 +10,7 @@ namespace SolarSystem
         [SerializeField] CelestialRegionConfig m_CelestialRegionConfig;
         
         [Header("Planet Color Settings")]
-        [SerializeField] CelestialObjectColorConfig m_CelestialObjectColorConfig;
+        [SerializeField] Configs.CelestialObjectColorConfig m_CelestialObjectColorConfig;
         
         [SerializeField] Sprite[] m_AllowedSprites;
         [SerializeField] Planet m_PlanetPrefab;
@@ -85,6 +82,6 @@ namespace SolarSystem
         public int GetGiantPlanetChance() => m_GiantPlanetChance;
         public Core.Helpers.RangeValueFloat GetGiantPlanetDiameterRange() => m_GiantPlanetDiameter;
         public CelestialRegionConfig GetCelestialRegionConfig() => m_CelestialRegionConfig;
-        public CelestialObjectColorConfig GetCelestialObjectColorConfig() => m_CelestialObjectColorConfig;
+        public Configs.CelestialObjectColorConfig GetCelestialObjectColorConfig() => m_CelestialObjectColorConfig;
     }
 }

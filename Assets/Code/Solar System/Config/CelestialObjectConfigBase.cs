@@ -2,7 +2,7 @@ using Resources;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace SolarSystem
+namespace SolarSystem.Configs
 {
     public class CelestialObjectConfigBase : ScriptableObject
     {

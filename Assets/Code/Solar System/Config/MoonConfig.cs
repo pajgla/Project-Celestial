@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using SolarSystem.Configs;
 using UnityEngine;
 
-namespace SolarSystem
+namespace SolarSystem.Configs
 {
     [CreateAssetMenu(fileName = "New Moon Config", menuName = "Config/Moon Config")]
     public class MoonConfig : CelestialObjectConfigBase
     {
+        [Header("Display settings")]
         [SerializeField] Sprite[] m_AllowedSprites;
+        [SerializeField] MoonColorConfig m_MoonColorConfig;
         
         [Header("Prefabs")]
         [SerializeField] Moon m_MoonPrefab;
@@ -18,8 +19,9 @@ namespace SolarSystem
         }
         
         //Getters
-        public Sprite[] GetAllowedSprites() { return m_AllowedSprites; }
-        public Moon GetMoonPrefab() { return m_MoonPrefab; }
+        public Sprite[] GetAllowedSprites() => m_AllowedSprites;
+        public Moon GetMoonPrefab() => m_MoonPrefab;
+        public MoonColorConfig GetMoonColorConfig() => m_MoonColorConfig;
     }
 }
 

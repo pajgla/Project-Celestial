@@ -21,9 +21,11 @@ MonoBehaviour:
   m_OrbitDrawWidth: 2
   m_OrbitDrawPoints: 100
   m_IsMoveableOrbit: 1
-  m_ObjectRadius:
+  m_ObjectDiameter:
     m_MinValue: 1
     m_MaxValue: 5
+  m_ResourcesConfig: {fileID: 11400000, guid: 0e5059b73f85bd8408d486ab10e9ffed, type: 2}
   m_AllowedSprites:
   - {fileID: 21300000, guid: 4f04f39322b6f5045873ffffcab567d4, type: 3}
+  m_MoonColorConfig: {fileID: 11400000, guid: ae7f98270c6cfec45bb9e64f9c9e2289, type: 2}
   m_MoonPrefab: {fileID: 1211443858589400438, guid: 9c774763916d86544b1337c6dbfc7c6f, type: 3}

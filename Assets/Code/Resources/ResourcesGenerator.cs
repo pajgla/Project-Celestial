@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using SolarSystem;
+using SolarSystem.Configs;
 using UnityEngine;
 
 namespace Resources
 {
     public static class ResourcesGenerator
     {
-        public static void GenerateResources(CelestialObjectConfigBase config, Planet planet)
+        public static void GeneratePlanetResources(CelestialObjectConfigBase config, Planet planet)
         {
             if (config == null)
             {
@@ -20,38 +21,40 @@ namespace Resources
                 //Some celestial objects (like a star) do not need to have resources config, so we can safely return
                 return;
             }
-            
-            PlanetTypeResourceRarityConfig planetTypeResourceRarityConfig = resourcesConfig.GetPlanetTypeResourceRarityConfig();
-            if (planetTypeResourceRarityConfig == null)
+
+            PlanetTypeResourceRarityConfig rarityConfig = resourcesConfig.GetPlanetTypeResourceRarityConfig();
+            if (rarityConfig == null)
             {
                 Debug.LogError("PlanetTypeResourceRarityConfig is null");
                 return;
             }
-            
+
             RarityChancesConfig rarityChancesConfig = resourcesConfig.GetRarityChancesConfig();
             if (rarityChancesConfig == null)
             {
                 Debug.LogError("RarityChancesConfig is null");
                 return;
             }
-            
+
             ResourceSpawningConfig resourceSpawningConfig = resourcesConfig.GetResourceSpawningConfig();
             if (resourceSpawningConfig == null)
             {
                 Debug.LogError("ResourceSpawningConfig is null");
                 return;
             }
-            
+
             EPlanetType planetType = planet.GetPlanetType();
-            List<ResourceRarityWrapper> resourcesRarityWrappers = planetTypeResourceRarityConfig.GetResourceRaritiesForPlanetType(planetType);
+            List<ResourceRarityWrapper> resourcesRarityWrappers =
+                rarityConfig.GetResourceRaritiesForPlanetType(planetType);
             if (resourcesRarityWrappers == null || resourcesRarityWrappers.Count == 0)
             {
-                Debug.LogWarning($"No resource rarity wrappers found for planet type {planetType.ToString()}. Is this okay?");
+                Debug.LogWarning(
+                    $"No resource rarity wrappers found for planet type {planetType.ToString()}. Is this okay?");
                 return;
             }
 
             ResourcesHolder resourcesHolder = planet.GetResourcesHolder();
-            
+
             foreach (ResourceRarityWrapper resourceRarityWrapper in resourcesRarityWrappers)
             {
                 int chance = Random.Range(0, 101);
@@ -59,13 +62,84 @@ namespace Resources
                 {
                     EResourceType resourceType = resourceRarityWrapper.GetResourceType();
                     EResourceRarity resourceRarity = resourceRarityWrapper.GetResourceRarity();
-                    ResourceSpawningConfig.ResourceAmountEntry resourceAmountEntry = resourceSpawningConfig.GetResourceAmountFor(resourceType, resourceRarity);
+                    ResourceSpawningConfig.ResourceAmountEntry resourceAmountEntry =
+                        resourceSpawningConfig.GetResourceAmountFor(resourceType, resourceRarity);
 
                     if (resourceAmountEntry == null)
                     {
                         continue;
                     }
-                    
+
+                    //#TODO Implement celestial object radius multiplier
+                    float spawnAmount = resourceAmountEntry.m_AmountRange.GetRandomValueFromRange();
+                    resourcesHolder.AddResource(resourceType, spawnAmount);
+                }
+            }
+        }
+
+        public static void GenerateMoonResources(CelestialObjectConfigBase config, Moon moon)
+        {
+            if (config == null)
+            {
+                Debug.LogError("Null config provided");
+                return;
+            }
+
+            ResourcesConfig resourcesConfig = config.GetResourcesConfig();
+            if (resourcesConfig == null)
+            {
+                //Some celestial objects (like a star) do not need to have resources config, so we can safely return
+                return;
+            }
+
+            MoonTypeResourceRarityConfig rarityConfig = resourcesConfig.GetMoonTypeResourceRarityConfig();
+            if (rarityConfig == null)
+            {
+                Debug.LogError("PlanetTypeResourceRarityConfig is null");
+                return;
+            }
+
+            RarityChancesConfig rarityChancesConfig = resourcesConfig.GetRarityChancesConfig();
+            if (rarityChancesConfig == null)
+            {
+                Debug.LogError("RarityChancesConfig is null");
+                return;
+            }
+
+            ResourceSpawningConfig resourceSpawningConfig = resourcesConfig.GetResourceSpawningConfig();
+            if (resourceSpawningConfig == null)
+            {
+                Debug.LogError("ResourceSpawningConfig is null");
+                return;
+            }
+
+            EMoonType moonType = moon.GetMoonType();
+            List<ResourceRarityWrapper> resourcesRarityWrappers =
+                rarityConfig.GetResourceRaritiesForPlanetType(moonType);
+            if (resourcesRarityWrappers == null || resourcesRarityWrappers.Count == 0)
+            {
+                Debug.LogWarning(
+                    $"No resource rarity wrappers found for planet type {moonType.ToString()}. Is this okay?");
+                return;
+            }
+
+            ResourcesHolder resourcesHolder = moon.GetResourcesHolder();
+
+            foreach (ResourceRarityWrapper resourceRarityWrapper in resourcesRarityWrappers)
+            {
+                int chance = Random.Range(0, 101);
+                if (rarityChancesConfig.IsChanceCheckPassed(resourceRarityWrapper.GetResourceRarity(), chance))
+                {
+                    EResourceType resourceType = resourceRarityWrapper.GetResourceType();
+                    EResourceRarity resourceRarity = resourceRarityWrapper.GetResourceRarity();
+                    ResourceSpawningConfig.ResourceAmountEntry resourceAmountEntry =
+                        resourceSpawningConfig.GetResourceAmountFor(resourceType, resourceRarity);
+
+                    if (resourceAmountEntry == null)
+                    {
+                        continue;
+                    }
+
                     //#TODO Implement celestial object radius multiplier
                     float spawnAmount = resourceAmountEntry.m_AmountRange.GetRandomValueFromRange();
                     resourcesHolder.AddResource(resourceType, spawnAmount);

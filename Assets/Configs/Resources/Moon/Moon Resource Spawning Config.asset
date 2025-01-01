@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e256dfcc66ce84a99cdcfce44e207a, type: 3}
+  m_Name: Moon Resource Spawning Config
+  m_EditorClassIdentifier: 
+  m_ResourceAmountWrappers:
+  - m_ResourceType: 0
+    m_ResourceAmountEntries:
+    - m_ResourceRarity: 0
+      m_AmountRange:
+        m_MinValue: 3000
+        m_MaxValue: 10000
+      m_CelestialObjectRadiusMultiplier: 0
+  - m_ResourceType: 1
+    m_ResourceAmountEntries:
+    - m_ResourceRarity: 0
+      m_AmountRange:
+        m_MinValue: 1000
+        m_MaxValue: 3000
+      m_CelestialObjectRadiusMultiplier: 0
+  - m_ResourceType: 2
+    m_ResourceAmountEntries:
+    - m_ResourceRarity: 0
+      m_AmountRange:
+        m_MinValue: 100
+        m_MaxValue: 400
+      m_CelestialObjectRadiusMultiplier: 0
+  - m_ResourceType: 5
+    m_ResourceAmountEntries:
+    - m_ResourceRarity: 0
+      m_AmountRange:
+        m_MinValue: 600
+        m_MaxValue: 1500
+      m_CelestialObjectRadiusMultiplier: 0
+  - m_ResourceType: 6
+    m_ResourceAmountEntries:
+    - m_ResourceRarity: 0
+      m_AmountRange:
+        m_MinValue: 15
+        m_MaxValue: 50
+      m_CelestialObjectRadiusMultiplier: 0

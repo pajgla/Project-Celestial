@@ -11,8 +11,8 @@ namespace SolarSystem.Debugging
         [SerializeField] Color m_MiddleRegionColor = Color.white;
         [SerializeField] Color m_OuterRegionColor = Color.white;
 
-        [SerializeField] CelestialRegionConfig m_RegionConfig;
-        [SerializeField] SolarSystemConfig m_SolarSystemConfig;
+        [SerializeField] Configs.CelestialRegionConfig m_RegionConfig;
+        [SerializeField] Configs.SolarSystemConfig m_SolarSystemConfig;
         [SerializeField] GameObject m_RegionPrefab;
 
         void Start()

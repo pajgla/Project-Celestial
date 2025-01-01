@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 585ce0339460c32439a70cbd60ec7fb1, type: 3}
-  m_Name: Resources Config
+  m_Name: Moon Resources Config
   m_EditorClassIdentifier: 
-  m_PlanetTypeResourceRarityConfig: {fileID: 11400000, guid: aa14fbd12658a0b49959781c69628cd3, type: 2}
-  m_RarityChancesConfig: {fileID: 11400000, guid: fa589f9b7cc505f408cb302a4d09a512, type: 2}
-  m_ResourceSpawningConfig: {fileID: 11400000, guid: 62a5f25215a40e04aa9e4166e21314af, type: 2}
+  m_RarityChancesConfig: {fileID: 11400000, guid: b4b89725ef281034a94b54ae0a95ec10, type: 2}
+  m_ResourceSpawningConfig: {fileID: 11400000, guid: a30a9e836accb91498ad276e035e67e2, type: 2}
+  m_PlanetTypeResourceRarityConfig: {fileID: 0}
+  m_MoonTypeResourceRarityConfig: {fileID: 11400000, guid: 2dfc5de78031ce845bf9fb67ed90a07e, type: 2}

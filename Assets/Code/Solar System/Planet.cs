@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using SolarSystem.Factory;
 using UnityEngine;
 
 namespace SolarSystem
@@ -7,14 +8,13 @@ namespace SolarSystem
     public class Planet : CelestialObjectBase
     {
         List<Moon> m_Moons = new List<Moon>();
-        [SerializeField] Resources.ResourcesHolder m_ResourcesHolder;
         
         EPlanetType m_PlanetType;
         bool m_IsGiantPlanet = false;
         
-        public override void Initialize(CelestialObjectBase parentObject, CelestialObjectConfigBase config, float orbitRadius)
+        public override void Initialize(CelestialObjectBase parentObject, Configs.CelestialObjectConfigBase config, float orbitRadius)
         {
-            if (config.GetType() != typeof(PlanetConfig))
+            if (config.GetType() != typeof(Configs.PlanetConfig))
             {
                 Debug.LogError("Config of type 'PlanetConfig' is required for planet initialization!");
                 return;
@@ -23,7 +23,7 @@ namespace SolarSystem
             base.Initialize(parentObject, config, orbitRadius);
         }
 
-        public void GenerateMoons(PlanetConfig config)
+        public void GenerateMoons(Configs.PlanetConfig config)
         {
             int spawnChance = Random.Range(0, 101);
             int requiredChance = config.GetMoonChance();
@@ -42,7 +42,7 @@ namespace SolarSystem
             float radius = GetDiameter() / 2.0f + config.GetDistanceFromPlanetToFirstMoonRange().GetRandomValueFromRange();
             for (int i = 0; i < moonsToSpawn; i++)
             {
-                Moon newMoon = SolarSystemHelpers.GenerateNewMoon(config.GetMoonConfig());
+                Moon newMoon = MoonFactory.GenerateMoon(config.GetMoonConfig(), radius);
 
                 float moonRadius = newMoon.GetDiameter() / 2.0f;
                 radius += moonRadius + config.GetDistanceBetweenMoonsRange().GetRandomValueFromRange();
@@ -80,7 +80,6 @@ namespace SolarSystem
         public void SetIsGiantPlanet(bool value) { m_IsGiantPlanet = value; }
         public EPlanetType GetPlanetType() { return m_PlanetType; }
         public void SetPlanetType(EPlanetType value) { m_PlanetType = value; }
-        public Resources.ResourcesHolder GetResourcesHolder() => m_ResourcesHolder;
     }
 }
 

@@ -44,7 +44,7 @@ namespace Core.Components
         {
             //#TODO This is just for debugging purposes
             
-            Planet planet = GetComponent<Planet>();
+            CelestialObjectBase planet = GetComponent<CelestialObjectBase>();
             ResourcesHolder resourcesHolder = planet.GetResourcesHolder();
 
             foreach (var resourceTuple in resourcesHolder.GetHoldingResources())

@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using Resources;
 using UnityEngine;
 
-namespace SolarSystem
+namespace SolarSystem.Factory
 {
     public static class PlanetFactory
     {
-        public static Planet GenerateNewPlanet(PlanetConfig config, float orbitRadius)
+        public static Planet GenerateNewPlanet(Configs.PlanetConfig config, float orbitRadius)
         {
             Planet newPlanet = GameObject.Instantiate(config.GetPlanetPrefab());
             if (!ValidatePlanetPrefab(newPlanet))
@@ -29,17 +27,17 @@ namespace SolarSystem
             DeterminePlanetSprite(config, newPlanet);
             DeterminePlanetColor(newPlanet, config);
             
-            ResourcesGenerator.GenerateResources(config, newPlanet);
+            ResourcesGenerator.GeneratePlanetResources(config, newPlanet);
             
             return newPlanet;
         }
 
-        static void DeterminePlanetSprite(PlanetConfig config, Planet planet)
+        static void DeterminePlanetSprite(Configs.PlanetConfig config, Planet planet)
         {
             planet.GetComponent<SpriteRenderer>().sprite = config.GetAllowedSprites()[0];
         }
 
-        static void DeterminePlanetColor(Planet planet, PlanetConfig config)
+        static void DeterminePlanetColor(Planet planet, Configs.PlanetConfig config)
         {
             Color color = config.GetCelestialObjectColorConfig().GetColorForType(planet.GetPlanetType());
             
@@ -58,7 +56,7 @@ namespace SolarSystem
             return true;
         }
 
-        static void RandomizePlanetRadius(PlanetConfig config, Planet planet, float orbitRadius)
+        static void RandomizePlanetRadius(Configs.PlanetConfig config, Planet planet, float orbitRadius)
         {
             float planetDiameter = 0;
         
@@ -86,9 +84,9 @@ namespace SolarSystem
             planet.SetCurrentAngleToParentObject(randomAngle);
         }
 
-        static EPlanetType DeterminePlanetType(Planet planet, PlanetConfig config, float distanceFromStar)
+        static EPlanetType DeterminePlanetType(Planet planet, Configs.PlanetConfig config, float distanceFromStar)
         {
-            CelestialRegionConfig celestialRegionConfig = config.GetCelestialRegionConfig();
+            Configs.CelestialRegionConfig celestialRegionConfig = config.GetCelestialRegionConfig();
             if (celestialRegionConfig == null)
             {
                 Debug.LogError("Planet config doesn't have a Celestial Region Config!");

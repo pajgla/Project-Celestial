@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RarityChances:
   - m_Rarity: 0
-    m_Chance: 90
+    m_Chance: 100
   - m_Rarity: 1
     m_Chance: 40
   - m_Rarity: 2

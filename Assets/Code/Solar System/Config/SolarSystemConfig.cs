@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace SolarSystem
+namespace SolarSystem.Configs
 {
     [CreateAssetMenu(fileName = "New Solar System Config", menuName = "Config/Solar System Config")]
     public class SolarSystemConfig : ScriptableObject

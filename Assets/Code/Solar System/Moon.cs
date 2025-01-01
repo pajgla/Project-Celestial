@@ -1,14 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using SolarSystem.Configs;
 using UnityEngine;
 
 namespace SolarSystem
 {
     public class Moon : CelestialObjectBase
     {
-        public override void Initialize(CelestialObjectBase parentObject, CelestialObjectConfigBase config, float orbitRadius)
+        EMoonType m_MoonType;
+        
+        public override void Initialize(CelestialObjectBase parentObject, Configs.CelestialObjectConfigBase config, float orbitRadius)
         {
             if (config.GetType() != typeof(MoonConfig))
             {
@@ -21,5 +20,9 @@ namespace SolarSystem
             MoonConfig moonConfig = (MoonConfig)config;
             GetComponent<SpriteRenderer>().sprite = moonConfig.GetAllowedSprites()[0];
         }
+        
+        //Getters & Setters
+        public EMoonType GetMoonType() => m_MoonType;
+        public void SetMoonType(EMoonType moonType) => m_MoonType = moonType;
     }
 }

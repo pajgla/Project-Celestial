@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ebd0eb89b39894ca8ccab486155554, type: 3}
+  m_Name: Moon Type Resource Rarity Config
+  m_EditorClassIdentifier: 
+  m_ResourceRarities:
+  - m_MoonType: 1
+    m_ResourceRarities:
+    - m_ResourceType: 0
+      m_ResourceRarity: 0
+  - m_MoonType: 2
+    m_ResourceRarities:
+    - m_ResourceType: 1
+      m_ResourceRarity: 0
+  - m_MoonType: 3
+    m_ResourceRarities:
+    - m_ResourceType: 2
+      m_ResourceRarity: 0
+  - m_MoonType: 4
+    m_ResourceRarities:
+    - m_ResourceType: 5
+      m_ResourceRarity: 0
+  - m_MoonType: 5
+    m_ResourceRarities:
+    - m_ResourceType: 6
+      m_ResourceRarity: 0
