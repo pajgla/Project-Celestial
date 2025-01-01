@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Resources;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -13,9 +14,6 @@ namespace SolarSystem
         
         [Header("Planet Color Settings")]
         [SerializeField] CelestialObjectColorConfig m_CelestialObjectColorConfig;
-        
-        [Header("Resource Rarities Settings")]
-        [SerializeField] PlanetTypeResourceRarityConfig m_ResourceRarityConfig;
         
         [SerializeField] Sprite[] m_AllowedSprites;
         [SerializeField] Planet m_PlanetPrefab;
@@ -81,13 +79,12 @@ namespace SolarSystem
         public int GetMaxMoons() { return m_MaxMoons; }
         public MoonConfig GetMoonConfig() { return m_MoonConfig; }
 
-        public Core.Helpers.RangeValueFloat GetDistanceBetweenMoonsRange() { return m_DistanceBetweenMoons; }
+        public Core.Helpers.RangeValueFloat GetDistanceBetweenMoonsRange() => m_DistanceBetweenMoons;
 
-        public Core.Helpers.RangeValueFloat GetDistanceFromPlanetToFirstMoonRange() { return m_DistanceFromPlanetToFirstMoon; }
-        public int GetGiantPlanetChance() { return m_GiantPlanetChance; }
-        public Core.Helpers.RangeValueFloat GetGiantPlanetDiameterRange() { return m_GiantPlanetDiameter; }
-        public CelestialRegionConfig GetCelestialRegionConfig() { return m_CelestialRegionConfig; }
-        public CelestialObjectColorConfig GetCelestialObjectColorConfig() { return m_CelestialObjectColorConfig; }
-        public PlanetTypeResourceRarityConfig GetResourceRarityConfig() { return m_ResourceRarityConfig; }
+        public Core.Helpers.RangeValueFloat GetDistanceFromPlanetToFirstMoonRange() => m_DistanceFromPlanetToFirstMoon;
+        public int GetGiantPlanetChance() => m_GiantPlanetChance;
+        public Core.Helpers.RangeValueFloat GetGiantPlanetDiameterRange() => m_GiantPlanetDiameter;
+        public CelestialRegionConfig GetCelestialRegionConfig() => m_CelestialRegionConfig;
+        public CelestialObjectColorConfig GetCelestialObjectColorConfig() => m_CelestialObjectColorConfig;
     }
 }

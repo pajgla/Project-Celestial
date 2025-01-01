@@ -7,8 +7,9 @@ namespace SolarSystem
     public class Planet : CelestialObjectBase
     {
         List<Moon> m_Moons = new List<Moon>();
+        [SerializeField] Resources.ResourcesHolder m_ResourcesHolder;
         
-        [SerializeField] EPlanetType m_PlanetType;
+        EPlanetType m_PlanetType;
         bool m_IsGiantPlanet = false;
         
         public override void Initialize(CelestialObjectBase parentObject, CelestialObjectConfigBase config, float orbitRadius)
@@ -84,6 +85,7 @@ namespace SolarSystem
         public void SetIsGiantPlanet(bool value) { m_IsGiantPlanet = value; }
         public EPlanetType GetPlanetType() { return m_PlanetType; }
         public void SetPlanetType(EPlanetType value) { m_PlanetType = value; }
+        public Resources.ResourcesHolder GetResourcesHolder() => m_ResourcesHolder;
     }
 }
 

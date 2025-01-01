@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Resources;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -20,6 +19,9 @@ namespace SolarSystem
         [Header("Radius")] 
         [FormerlySerializedAs("m_ObjectRadius"), SerializeField] Core.Helpers.RangeValueFloat m_ObjectDiameter;
         
+        [Header("Resource Settings")]
+        [SerializeField] ResourcesConfig m_ResourcesConfig;
+        
         public virtual Color GetRandomColor(CelestialObjectBase celestialObject)
         {
             throw new System.NotImplementedException();
@@ -36,6 +38,7 @@ namespace SolarSystem
         public float GetOrbitDrawWidth() { return m_OrbitDrawWidth; }
         public int GetOrbitDrawPoints() { return m_OrbitDrawPoints; }
         public bool GetIsMoveableOrbit() { return m_IsMoveableOrbit; }
+        public ResourcesConfig GetResourcesConfig() => m_ResourcesConfig;
     } 
 }
 

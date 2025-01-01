@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Resources;
 using UnityEngine;
 
 namespace SolarSystem
@@ -27,18 +28,19 @@ namespace SolarSystem
 
             DeterminePlanetColor(newPlanet, config);
             
+            ResourcesGenerator.GenerateResources(config, newPlanet);
             
             return newPlanet;
         }
 
-        private static void DeterminePlanetColor(Planet planet, PlanetConfig config)
+        static void DeterminePlanetColor(Planet planet, PlanetConfig config)
         {
             Color color = config.GetCelestialObjectColorConfig().GetColorForType(planet.GetPlanetType());
             
             planet.GetComponent<SpriteRenderer>().color = color;
         }
 
-        private static bool ValidatePlanetPrefab(Planet planet)
+        static bool ValidatePlanetPrefab(Planet planet)
         {
             SpriteRenderer spriteRenderer = planet.GetComponent<SpriteRenderer>();
             if (spriteRenderer == null)
@@ -50,7 +52,7 @@ namespace SolarSystem
             return true;
         }
 
-        private static void RandomizePlanetRadius(PlanetConfig config, Planet planet, float orbitRadius)
+        static void RandomizePlanetRadius(PlanetConfig config, Planet planet, float orbitRadius)
         {
             float planetDiameter = 0;
         
@@ -72,13 +74,13 @@ namespace SolarSystem
             planet.SetDiameter(planetDiameter);
         }
 
-        private static void SetRandomAngleToStar(Planet planet)
+        static void SetRandomAngleToStar(Planet planet)
         {
             float randomAngle = Random.Range(0.0f, 360.0f);
             planet.SetCurrentAngleToParentObject(randomAngle);
         }
 
-        private static EPlanetType DeterminePlanetType(Planet planet, PlanetConfig config, float distanceFromStar)
+        static EPlanetType DeterminePlanetType(Planet planet, PlanetConfig config, float distanceFromStar)
         {
             CelestialRegionConfig celestialRegionConfig = config.GetCelestialRegionConfig();
             if (celestialRegionConfig == null)
@@ -141,7 +143,7 @@ namespace SolarSystem
             return planetType;
         }
 
-        private static EPlanetType RandomPlanetType(EPlanetType[] types)
+        static EPlanetType RandomPlanetType(EPlanetType[] types)
         {
             int typesLength = types.Length;
             if (typesLength == 0)
