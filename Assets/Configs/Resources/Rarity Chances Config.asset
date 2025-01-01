@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b141f5fca21ca8044b16841a919f1336, type: 3}
   m_Name: Rarity Chances Config
   m_EditorClassIdentifier: 
-  m_RarityChances: []
+  m_RarityChances:
+  - m_Rarity: 0
+    m_Chance: 90
+  - m_Rarity: 1
+    m_Chance: 40
+  - m_Rarity: 2
+    m_Chance: 15
+  - m_Rarity: 3
+    m_Chance: 5
+  - m_Rarity: 4
+    m_Chance: 0

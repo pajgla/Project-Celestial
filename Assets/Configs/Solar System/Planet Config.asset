@@ -24,9 +24,9 @@ MonoBehaviour:
   m_ObjectDiameter:
     m_MinValue: 15
     m_MaxValue: 40
+  m_ResourcesConfig: {fileID: 11400000, guid: bed6d29cfef154c448c935740a99353e, type: 2}
   m_CelestialRegionConfig: {fileID: 11400000, guid: 91cafabe237dc6240b03586fff28a80f, type: 2}
   m_CelestialObjectColorConfig: {fileID: 11400000, guid: 274fe53014b72f648baffa4d794df4d0, type: 2}
-  m_ResourceRarityConfig: {fileID: 11400000, guid: aa14fbd12658a0b49959781c69628cd3, type: 2}
   m_AllowedSprites:
   - {fileID: 21300000, guid: 4f04f39322b6f5045873ffffcab567d4, type: 3}
   m_PlanetPrefab: {fileID: 4302612713933445237, guid: 5e59a1e0a6a618d4cbbda1968f509256, type: 3}

@@ -12,4 +12,193 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e256dfcc66ce84a99cdcfce44e207a, type: 3}
   m_Name: Resource Spawning Config
   m_EditorClassIdentifier: 
-  m_ResourceAmountWrappers: []
+  m_ResourceAmountWrappers:
+  - m_ResourceType: 0
+    m_ResourceAmountEntries:
+    - m_ResourceRarity: 0
+      m_AmountRange:
+        m_MinValue: 2000
+        m_MaxValue: 5000
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 1
+      m_AmountRange:
+        m_MinValue: 1000
+        m_MaxValue: 2500
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 2
+      m_AmountRange:
+        m_MinValue: 250
+        m_MaxValue: 750
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 3
+      m_AmountRange:
+        m_MinValue: 15
+        m_MaxValue: 250
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 4
+      m_AmountRange:
+        m_MinValue: 0
+        m_MaxValue: 0
+      m_CelestialObjectRadiusMultiplier: 0
+  - m_ResourceType: 1
+    m_ResourceAmountEntries:
+    - m_ResourceRarity: 0
+      m_AmountRange:
+        m_MinValue: 500
+        m_MaxValue: 1500
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 1
+      m_AmountRange:
+        m_MinValue: 300
+        m_MaxValue: 850
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 2
+      m_AmountRange:
+        m_MinValue: 100
+        m_MaxValue: 350
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 3
+      m_AmountRange:
+        m_MinValue: 5
+        m_MaxValue: 50
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 4
+      m_AmountRange:
+        m_MinValue: 0
+        m_MaxValue: 0
+      m_CelestialObjectRadiusMultiplier: 0
+  - m_ResourceType: 2
+    m_ResourceAmountEntries:
+    - m_ResourceRarity: 0
+      m_AmountRange:
+        m_MinValue: 100
+        m_MaxValue: 200
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 1
+      m_AmountRange:
+        m_MinValue: 50
+        m_MaxValue: 100
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 2
+      m_AmountRange:
+        m_MinValue: 20
+        m_MaxValue: 50
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 3
+      m_AmountRange:
+        m_MinValue: 5
+        m_MaxValue: 20
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 4
+      m_AmountRange:
+        m_MinValue: 0
+        m_MaxValue: 0
+      m_CelestialObjectRadiusMultiplier: 0
+  - m_ResourceType: 3
+    m_ResourceAmountEntries:
+    - m_ResourceRarity: 0
+      m_AmountRange:
+        m_MinValue: 1000
+        m_MaxValue: 3000
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 1
+      m_AmountRange:
+        m_MinValue: 600
+        m_MaxValue: 1100
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 2
+      m_AmountRange:
+        m_MinValue: 200
+        m_MaxValue: 650
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 3
+      m_AmountRange:
+        m_MinValue: 5
+        m_MaxValue: 200
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 4
+      m_AmountRange:
+        m_MinValue: 0
+        m_MaxValue: 0
+      m_CelestialObjectRadiusMultiplier: 0
+  - m_ResourceType: 4
+    m_ResourceAmountEntries:
+    - m_ResourceRarity: 0
+      m_AmountRange:
+        m_MinValue: 3000
+        m_MaxValue: 6000
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 1
+      m_AmountRange:
+        m_MinValue: 1500
+        m_MaxValue: 3200
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 2
+      m_AmountRange:
+        m_MinValue: 750
+        m_MaxValue: 1500
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 3
+      m_AmountRange:
+        m_MinValue: 1
+        m_MaxValue: 750
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 4
+      m_AmountRange:
+        m_MinValue: 0
+        m_MaxValue: 0
+      m_CelestialObjectRadiusMultiplier: 0
+  - m_ResourceType: 5
+    m_ResourceAmountEntries:
+    - m_ResourceRarity: 0
+      m_AmountRange:
+        m_MinValue: 500
+        m_MaxValue: 1000
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 1
+      m_AmountRange:
+        m_MinValue: 250
+        m_MaxValue: 500
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 2
+      m_AmountRange:
+        m_MinValue: 100
+        m_MaxValue: 250
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 3
+      m_AmountRange:
+        m_MinValue: 1
+        m_MaxValue: 100
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 4
+      m_AmountRange:
+        m_MinValue: 0
+        m_MaxValue: 0
+      m_CelestialObjectRadiusMultiplier: 0
+  - m_ResourceType: 6
+    m_ResourceAmountEntries:
+    - m_ResourceRarity: 0
+      m_AmountRange:
+        m_MinValue: 20
+        m_MaxValue: 30
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 1
+      m_AmountRange:
+        m_MinValue: 10
+        m_MaxValue: 20
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 2
+      m_AmountRange:
+        m_MinValue: 5
+        m_MaxValue: 10
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 3
+      m_AmountRange:
+        m_MinValue: 1
+        m_MaxValue: 5
+      m_CelestialObjectRadiusMultiplier: 0
+    - m_ResourceRarity: 4
+      m_AmountRange:
+        m_MinValue: 0
+        m_MaxValue: 0
+      m_CelestialObjectRadiusMultiplier: 0
