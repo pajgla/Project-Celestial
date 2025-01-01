@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using SolarSystem.Constants;
 using UnityEngine;
 
 namespace SolarSystem.Configs
 {
-    [CreateAssetMenu(fileName = "New Moon Color Config", menuName = "Config/Solar System/Moon Color Config")]
+    [CreateAssetMenu(fileName = "New Moon Color Config", menuName = SolarSystemConstants.S_CelestialConfigMenuName + "Moon Color Config")]
     public class MoonColorConfig : ScriptableObject
     {
         [System.Serializable]

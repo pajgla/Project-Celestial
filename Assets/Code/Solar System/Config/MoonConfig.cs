@@ -1,9 +1,9 @@
-using SolarSystem.Configs;
+using SolarSystem.Constants;
 using UnityEngine;
 
 namespace SolarSystem.Configs
 {
-    [CreateAssetMenu(fileName = "New Moon Config", menuName = "Config/Moon Config")]
+    [CreateAssetMenu(fileName = "New Moon Config", menuName = SolarSystemConstants.S_CelestialConfigMenuName  + "Moon Config")]
     public class MoonConfig : CelestialObjectConfigBase
     {
         [Header("Display settings")]

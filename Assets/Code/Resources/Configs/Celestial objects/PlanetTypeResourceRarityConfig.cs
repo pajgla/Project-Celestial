@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using Resources;
+using Resources.Constants;
 using UnityEngine;
 
 namespace SolarSystem.Configs
 {
-    [CreateAssetMenu(fileName = "New Planet Type Resource Rarity Config", menuName = "Config/Resources/Planet Type Resource Rarity Config")]
+    [CreateAssetMenu(fileName = "New Planet Type Resource Rarity Config", menuName = ResourcesConstants.S_CelestialResourcesConfigMenuName + "Planet Type Resource Rarity Config")]
     public class PlanetTypeResourceRarityConfig : ScriptableObject
     {
         [SerializeField] List<PlanetTypeResourceRarityWrapper> m_ResourceRarities = new List<PlanetTypeResourceRarityWrapper>();

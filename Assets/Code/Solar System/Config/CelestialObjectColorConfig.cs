@@ -1,6 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using SolarSystem.Constants;
 using UnityEngine;
 
 namespace SolarSystem.Configs
@@ -12,7 +12,7 @@ namespace SolarSystem.Configs
         public Color m_Color;
     }
     
-    [CreateAssetMenu(fileName = "New Celestial Object Color Config", menuName = "Config/New Celestial Object Color Config")]
+    [CreateAssetMenu(fileName = "New Celestial Object Color Config", menuName = SolarSystemConstants.S_CelestialConfigMenuName + "New Celestial Object Color Config")]
     public class CelestialObjectColorConfig : ScriptableObject
     {
         [SerializeField] List<PlanetTypeToColorWrapper> m_PlanetTypeToColorWrappers;

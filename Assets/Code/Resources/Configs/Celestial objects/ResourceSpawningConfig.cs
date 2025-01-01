@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Resources
 {
-    [CreateAssetMenu(fileName = "New Resource Spawning Config", menuName = "Config/Resources/Resource Spawning Config")]
+    [CreateAssetMenu(fileName = "New Resource Spawning Config", menuName = Constants.ResourcesConstants.S_CelestialResourcesConfigMenuName + "Resource Spawning Config")]
     public class ResourceSpawningConfig : ScriptableObject
     {
         [System.Serializable]

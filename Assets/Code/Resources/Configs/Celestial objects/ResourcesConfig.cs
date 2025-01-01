@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using SolarSystem;
 using SolarSystem.Configs;
 using UnityEngine;
 
 namespace Resources
 {
-    [CreateAssetMenu(fileName = "New Resources Config", menuName = "Config/Resources/Resources Config")]
+    [CreateAssetMenu(fileName = "New Resources Config", menuName = Constants.ResourcesConstants.S_CelestialResourcesConfigMenuName + "Resources Config")]
     public class ResourcesConfig : ScriptableObject
     {
         [SerializeField] RarityChancesConfig m_RarityChancesConfig;

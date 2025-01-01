@@ -1,9 +1,10 @@
+using SolarSystem.Constants;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace SolarSystem.Configs
 {
-    [CreateAssetMenu(fileName = "New Planet Config", menuName = "Config/Planet Config")]
+    [CreateAssetMenu(fileName = "New Planet Config", menuName = SolarSystemConstants.S_CelestialConfigMenuName + "Planet Config")]
     public class PlanetConfig : CelestialObjectConfigBase
     {
         [Header("Celestial Region Settings")]

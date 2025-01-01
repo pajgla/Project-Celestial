@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Core.Helpers;
+using SolarSystem.Constants;
 using UnityEngine.Serialization;
 
 namespace SolarSystem.Configs
 {
-    [CreateAssetMenu(fileName = "New Celestial Region Config", menuName = "Config/Celestial Region Config")]
+    [CreateAssetMenu(fileName = "New Celestial Region Config", menuName = SolarSystemConstants.S_CelestialConfigMenuName + "Celestial Region Config")]
     public class CelestialRegionConfig : ScriptableObject
     {
         [FormerlySerializedAs("m_InnerRegionEnd")] [SerializeField] float m_InnerRegionRadius;

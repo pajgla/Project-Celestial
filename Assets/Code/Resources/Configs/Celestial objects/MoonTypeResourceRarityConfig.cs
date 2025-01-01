@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using Resources;
+using Resources.Constants;
 using UnityEngine;
 
 namespace SolarSystem.Configs
 {
-    [CreateAssetMenu(fileName = "New Moon Type Resource Rarity Config", menuName = "Config/Resources/Moon Type Resource Rarity Config")]
+    [CreateAssetMenu(fileName = "New Moon Type Resource Rarity Config", menuName = ResourcesConstants.S_CelestialResourcesConfigMenuName + "Moon Type Resource Rarity Config")]
     public class MoonTypeResourceRarityConfig : ScriptableObject
     {
         [SerializeField] List<MoonTypeResourceRarityWrapper> m_ResourceRarities = new List<MoonTypeResourceRarityWrapper>();

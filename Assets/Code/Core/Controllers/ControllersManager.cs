@@ -29,6 +29,18 @@ namespace Core.Controllers
                 controller.Initialize();
             }
         }
+
+        public T GetControllerByType<T>() where T : ControllerBase
+        {
+            foreach (ControllerBase controller in m_ActiveControllers)
+            {
+                if (controller.GetType() == typeof(T))
+                    return (T)controller;
+            }
+            
+            Debug.LogError($"Controller of type {typeof(T).ToString()} not found!");
+            return null;
+        }
     }
 }
 

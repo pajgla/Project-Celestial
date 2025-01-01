@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Resources
 {
@@ -15,7 +11,7 @@ namespace Resources
         public int m_Chance;
     }
     
-    [CreateAssetMenu(fileName = "New Rarity Chances Config", menuName = "Config/Resources/Rarity Chances Config")]
+    [CreateAssetMenu(fileName = "New Rarity Chances Config", menuName = Constants.ResourcesConstants.S_CelestialResourcesConfigMenuName + "Rarity Chances Config")]
     public class RarityChancesConfig : ScriptableObject
     {
         [SerializeField] List<RarityChance> m_RarityChances = new List<RarityChance>();

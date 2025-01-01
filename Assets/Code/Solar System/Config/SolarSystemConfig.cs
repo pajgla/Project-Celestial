@@ -1,9 +1,10 @@
+using SolarSystem.Constants;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace SolarSystem.Configs
 {
-    [CreateAssetMenu(fileName = "New Solar System Config", menuName = "Config/Solar System Config")]
+    [CreateAssetMenu(fileName = "New Solar System Config", menuName = SolarSystemConstants.S_CelestialConfigMenuName + "Solar System Config")]
     public class SolarSystemConfig : ScriptableObject
     {
         [SerializeField] PlanetConfig m_PlanetConfig;
