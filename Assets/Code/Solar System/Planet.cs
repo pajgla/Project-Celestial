@@ -20,11 +20,6 @@ namespace SolarSystem
                 return;
             }
             
-            PlanetConfig planetConfig = (PlanetConfig)config;
-
-            //#TODO
-            GetComponent<SpriteRenderer>().sprite = planetConfig.GetAllowedSprites()[0];
-            
             base.Initialize(parentObject, config, orbitRadius);
         }
 

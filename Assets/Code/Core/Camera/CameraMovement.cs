@@ -106,7 +106,7 @@ namespace Core.Camera
                 return;
             }
 
-            GameplayActionMaps defaultInputActions = inputManager.GetDefaultInputActions();
+            GameplayActionMaps defaultInputActions = inputManager.GetGameplayActionMaps();
             defaultInputActions.Default.CameraMove.started += _ => StartDragging();
             defaultInputActions.Default.CameraMove.canceled += _ => StopDragging();
             defaultInputActions.Default.CameraZoom.performed += OnMouseScroll;

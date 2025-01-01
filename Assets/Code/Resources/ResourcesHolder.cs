@@ -33,6 +33,8 @@ namespace Resources
             m_Resources[resourceType] -= amount;
             return m_Resources[resourceType];
         }
+
+        public Dictionary<EResourceType, float> GetHoldingResources() => m_Resources;
     }
 }
 

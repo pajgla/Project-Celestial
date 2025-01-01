@@ -26,11 +26,17 @@ namespace SolarSystem
             EPlanetType planetType = DeterminePlanetType(newPlanet, config, orbitRadius);
             newPlanet.SetPlanetType(planetType);
 
+            DeterminePlanetSprite(config, newPlanet);
             DeterminePlanetColor(newPlanet, config);
             
             ResourcesGenerator.GenerateResources(config, newPlanet);
             
             return newPlanet;
+        }
+
+        static void DeterminePlanetSprite(PlanetConfig config, Planet planet)
+        {
+            planet.GetComponent<SpriteRenderer>().sprite = config.GetAllowedSprites()[0];
         }
 
         static void DeterminePlanetColor(Planet planet, PlanetConfig config)

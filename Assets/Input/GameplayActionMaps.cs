@@ -53,6 +53,15 @@ public partial class @GameplayActionMaps: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""e8e56c74-a8bd-4a08-bbfe-81f4bc8674b4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -88,6 +97,17 @@ public partial class @GameplayActionMaps: IInputActionCollection2, IDisposable
                     ""action"": ""CameraZoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""021a0058-0569-437d-bb61-ab66dd0fbabb"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -99,6 +119,7 @@ public partial class @GameplayActionMaps: IInputActionCollection2, IDisposable
         m_Default_MousePosition = m_Default.FindAction("Mouse Position", throwIfNotFound: true);
         m_Default_CameraMove = m_Default.FindAction("CameraMove", throwIfNotFound: true);
         m_Default_CameraZoom = m_Default.FindAction("CameraZoom", throwIfNotFound: true);
+        m_Default_Select = m_Default.FindAction("Select", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,6 +184,7 @@ public partial class @GameplayActionMaps: IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_MousePosition;
     private readonly InputAction m_Default_CameraMove;
     private readonly InputAction m_Default_CameraZoom;
+    private readonly InputAction m_Default_Select;
     public struct DefaultActions
     {
         private @GameplayActionMaps m_Wrapper;
@@ -170,6 +192,7 @@ public partial class @GameplayActionMaps: IInputActionCollection2, IDisposable
         public InputAction @MousePosition => m_Wrapper.m_Default_MousePosition;
         public InputAction @CameraMove => m_Wrapper.m_Default_CameraMove;
         public InputAction @CameraZoom => m_Wrapper.m_Default_CameraZoom;
+        public InputAction @Select => m_Wrapper.m_Default_Select;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -188,6 +211,9 @@ public partial class @GameplayActionMaps: IInputActionCollection2, IDisposable
             @CameraZoom.started += instance.OnCameraZoom;
             @CameraZoom.performed += instance.OnCameraZoom;
             @CameraZoom.canceled += instance.OnCameraZoom;
+            @Select.started += instance.OnSelect;
+            @Select.performed += instance.OnSelect;
+            @Select.canceled += instance.OnSelect;
         }
 
         private void UnregisterCallbacks(IDefaultActions instance)
@@ -201,6 +227,9 @@ public partial class @GameplayActionMaps: IInputActionCollection2, IDisposable
             @CameraZoom.started -= instance.OnCameraZoom;
             @CameraZoom.performed -= instance.OnCameraZoom;
             @CameraZoom.canceled -= instance.OnCameraZoom;
+            @Select.started -= instance.OnSelect;
+            @Select.performed -= instance.OnSelect;
+            @Select.canceled -= instance.OnSelect;
         }
 
         public void RemoveCallbacks(IDefaultActions instance)
@@ -223,5 +252,6 @@ public partial class @GameplayActionMaps: IInputActionCollection2, IDisposable
         void OnMousePosition(InputAction.CallbackContext context);
         void OnCameraMove(InputAction.CallbackContext context);
         void OnCameraZoom(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
     }
 }

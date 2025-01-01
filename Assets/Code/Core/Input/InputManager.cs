@@ -25,7 +25,7 @@ namespace Core.Input
         }
         
         //Getters
-        public GameplayActionMaps GetDefaultInputActions() { return m_DefaultInputActions; }
+        public GameplayActionMaps GetGameplayActionMaps() { return m_DefaultInputActions; }
     }
 }
 

@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using Random = UnityEngine.Random;
 
 namespace SolarSystem
 {
@@ -31,6 +27,8 @@ namespace SolarSystem
             {
                 DrawOrbit(config);
             }
+
+            InitializeColliderComponent();
         }
 
         void Update()
@@ -99,6 +97,15 @@ namespace SolarSystem
             }
             
             lineRenderer.SetPositions(localPoints);
+        }
+
+        void InitializeColliderComponent()
+        {
+            CircleCollider2D collider = GetComponent<CircleCollider2D>();
+            if (collider == null)
+                return;
+
+            collider.radius = 0.5f;
         }
 
         //Getters and setters
