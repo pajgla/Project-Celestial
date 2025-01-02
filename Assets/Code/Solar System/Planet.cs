@@ -8,6 +8,7 @@ namespace SolarSystem
     public class Planet : CelestialObjectBase
     {
         List<Moon> m_Moons = new List<Moon>();
+        Star m_ParentStar = null;
         
         EPlanetType m_PlanetType;
         bool m_IsGiantPlanet = false;
@@ -19,8 +20,15 @@ namespace SolarSystem
                 Debug.LogError("Config of type 'PlanetConfig' is required for planet initialization!");
                 return;
             }
+
+            if (parentObject is not Star parentStar)
+            {
+                Debug.LogError("Parent of a planet must be a Star!");
+                return;
+            }
+            SetParentStar(parentStar);
             
-            base.Initialize(parentObject, config, orbitRadius);
+            base.Initialize(parentStar, config, orbitRadius);
         }
 
         public void GenerateMoons(Configs.PlanetConfig config)
@@ -76,10 +84,12 @@ namespace SolarSystem
         }
         
         //Getters
-        public bool GetIsGiantPlanet() { return m_IsGiantPlanet; }
-        public void SetIsGiantPlanet(bool value) { m_IsGiantPlanet = value; }
-        public EPlanetType GetPlanetType() { return m_PlanetType; }
-        public void SetPlanetType(EPlanetType value) { m_PlanetType = value; }
+        public bool GetIsGiantPlanet() => m_IsGiantPlanet;
+        public void SetIsGiantPlanet(bool value) => m_IsGiantPlanet = value;
+        public EPlanetType GetPlanetType() => m_PlanetType;
+        public void SetPlanetType(EPlanetType value) => m_PlanetType = value;
+        public Star GetParentStar() => m_ParentStar;
+        public void SetParentStar(Star value) => m_ParentStar = value;
     }
 }
 

@@ -34,6 +34,11 @@ namespace Resources
             return m_Resources[resourceType];
         }
 
+        public bool IsEmpty()
+        {
+            return m_Resources.Count == 0;
+        }
+
         public Dictionary<EResourceType, float> GetHoldingResources() => m_Resources;
     }
 }
