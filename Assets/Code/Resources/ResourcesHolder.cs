@@ -35,6 +35,6 @@ namespace Resources
         }
 
         public Dictionary<EResourceType, float> GetHoldingResources() => m_Resources;
-    }
+    } 
 }
 

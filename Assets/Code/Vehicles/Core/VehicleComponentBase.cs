@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Vehicles.Configs;
 
 namespace Vehicles.Core
@@ -8,20 +9,14 @@ namespace Vehicles.Core
     {
         [Header("Config")]
         [SerializeField] VehicleConfigBase m_VehicleConfig;
-        [SerializeField] Material m_Material;
+        [SerializeField] Material m_TrajectoryMaterial;
+
+        PathData m_PathData = null;
+        LineRenderer m_TrajectoryRenderer;
         
-        public Transform m_StarTransform;
-        public Transform m_TargetTransform;
-        public float m_StarRadius = 1f;
-        public LineRenderer m_TrajectoryRenderer;
-        bool m_IsInitialized = false;
-        
-        public void StartTravel(Transform starTransform, Transform targetTransform, float starRadius)
+        public void StartTravel(PathData pathData)
         {
-            m_StarTransform = starTransform;
-            m_TargetTransform = targetTransform;
-            m_StarRadius = starRadius;
-            m_IsInitialized = true;
+            m_PathData = pathData;
         }
         
         void Start()
@@ -33,22 +28,20 @@ namespace Vehicles.Core
 
         void Update()
         {
-            if (!m_IsInitialized)
-                return;
-            
             UpdateMoveDirection();
         }
 
         void UpdateMoveDirection()
         {
-            Vector3 vehiclePosition = transform.position;
-            Vector3 starPosition = m_StarTransform.position;
-            Vector3 targetPosition = m_TargetTransform.position;
+            if (m_PathData == null)
+                return;
             
-            Vector3 toTarget = targetPosition - vehiclePosition;
-            Vector3 toStar = starPosition - vehiclePosition;
+            Vector3 vehiclePosition = transform.position;
+            
+            Vector3 toTarget = m_PathData.m_DestinationTransform.position - vehiclePosition;
+            Vector3 toStar = m_PathData.m_StarTransform.position - vehiclePosition;
 
-            Vector3 moveDirection = Vector3.zero;
+            Vector3 moveDirection;
             if (IsStarInAvoidanceCone(toTarget, toStar))
             {
                 moveDirection = CalculateAvoidanceDirection(toTarget, toStar);
@@ -69,7 +62,7 @@ namespace Vehicles.Core
 
         bool IsStarInAvoidanceCone(Vector3 toTarget, Vector3 toStar)
         {
-            if (toStar.magnitude > m_VehicleConfig.GetAvoidanceRadius() + m_StarRadius)
+            if (toStar.magnitude > m_VehicleConfig.GetAvoidanceRadius() + m_PathData.m_StarRadius)
                 return false;
             
             //Check the angle between the direction to the target and the direction to the star
@@ -105,20 +98,19 @@ namespace Vehicles.Core
 
         void UpdateTrajectory()
         {
-            Vector3 shipPosition = transform.position;
-            Vector3 goalPosition = m_TargetTransform.position;
-            Vector3 starPosition = m_StarTransform.position;
+            if (m_PathData == null)
+                return;
+            
+            Vector3 vehiclePosition = transform.position;
+            Vector3 destinationPosition = m_PathData.m_DestinationTransform.position;
+            Vector3[] points = new Vector3[2];
+            
+            Vector3 toGoal = destinationPosition - vehiclePosition;
+            Vector3 toStar = m_PathData.m_StarTransform.position - vehiclePosition;
+            points[0] = vehiclePosition;
+            points[1] = destinationPosition;
 
-            // Predict points along the trajectory
-            Vector3 currentPosition = shipPosition;
-            Vector3[] points = new Vector3[2]; // Adjust number of points for smoother debug line
-
-            Vector3 toGoal = goalPosition - currentPosition;
-            Vector3 toStar = starPosition - currentPosition;
-            points[0] = currentPosition;
-            points[1] = goalPosition;
-
-            m_TrajectoryRenderer.material = m_Material;
+            m_TrajectoryRenderer.material = m_TrajectoryMaterial;
             m_TrajectoryRenderer.endColor = Color.cyan;
             m_TrajectoryRenderer.startColor = Color.cyan;
             m_TrajectoryRenderer.startWidth = 1.5f;

@@ -53,7 +53,7 @@ namespace Resources
                 return;
             }
 
-            ResourcesHolder resourcesHolder = planet.GetResourcesHolder();
+            ResourcesHolder resourcesHolder = planet.GetCelestialObjectResourcesHolder().GetToBeMinedResourcesHolder();
 
             foreach (ResourceRarityWrapper resourceRarityWrapper in resourcesRarityWrappers)
             {
@@ -117,7 +117,7 @@ namespace Resources
                 return;
             }
 
-            ResourcesHolder resourcesHolder = moon.GetResourcesHolder();
+            ResourcesHolder resourcesHolder = moon.GetCelestialObjectResourcesHolder().GetToBeMinedResourcesHolder();
 
             foreach (ResourceRarityWrapper resourceRarityWrapper in resourcesRarityWrappers)
             {

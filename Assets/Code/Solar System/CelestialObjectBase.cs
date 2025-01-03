@@ -5,8 +5,6 @@ namespace SolarSystem
     [RequireComponent(typeof(SpriteRenderer))]
     public class CelestialObjectBase : MonoBehaviour
     {
-        Resources.ResourcesHolder m_ResourcesHolder = new Resources.ResourcesHolder();
-        
         float m_CurrentAngleToParentObject = 0.0f;
         float m_OrbitSpeed = 1.0f;
         float m_OrbitRadius = 1.0f;
@@ -130,7 +128,6 @@ namespace SolarSystem
         //Diameter containing other celestial object orbiting this one
         public float GetRadiusWithMoons() => m_RadiusWithMoons;
         public void GetRadiusWithMoons(float value) => m_RadiusWithMoons = value;
-        public Resources.ResourcesHolder GetResourcesHolder() => m_ResourcesHolder;
     }
 }
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SolarSystem
 {
-    public class Moon : CelestialObjectBase
+    public class Moon : ResourceHoldingCelestialObject
     {
         EMoonType m_MoonType;
         

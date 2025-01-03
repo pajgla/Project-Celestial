@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SolarSystem
 {
-    public class Planet : CelestialObjectBase
+    public class Planet : ResourceHoldingCelestialObject
     {
         List<Moon> m_Moons = new List<Moon>();
         Star m_ParentStar = null;

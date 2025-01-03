@@ -44,10 +44,13 @@ namespace Core.Components
         {
             //#TODO This is just for debugging purposes
             
-            CelestialObjectBase planet = GetComponent<CelestialObjectBase>();
-            ResourcesHolder resourcesHolder = planet.GetResourcesHolder();
+            ResourceHoldingCelestialObject resourceHoldingCelestialObject = GetComponent<ResourceHoldingCelestialObject>();
+            if (resourceHoldingCelestialObject == null)
+                return;
+            
+            CelestialObjectResourcesHolder resourcesHolder = resourceHoldingCelestialObject.GetCelestialObjectResourcesHolder();
 
-            foreach (var resourceTuple in resourcesHolder.GetHoldingResources())
+            foreach (var resourceTuple in resourcesHolder.GetToBeMinedResourcesHolder().GetHoldingResources())
             {
                 Debug.Log(resourceTuple.Key.ToString() + ": " + resourceTuple.Value);
             }

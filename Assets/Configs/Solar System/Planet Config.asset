@@ -16,8 +16,8 @@ MonoBehaviour:
   m_OrbitColor: {r: 1, g: 0, b: 0, a: 0}
   m_ShouldDrawOrbit: 1
   m_OrbitSpeed:
-    m_MinValue: 2
-    m_MaxValue: 5
+    m_MinValue: 0.5
+    m_MaxValue: 3
   m_OrbitDrawWidth: 3
   m_OrbitDrawPoints: 100
   m_IsMoveableOrbit: 0
@@ -45,22 +45,4 @@ MonoBehaviour:
     m_MaxValue: 20
   m_DistanceFromPlanetToFirstMoon:
     m_MinValue: 0
-    m_MaxValue: 0
-  m_CloseRangePlanetColors:
-  - {r: 0.7924528, g: 0.40828848, b: 0, a: 1}
-  - {r: 0.7921569, g: 0.2368119, b: 0, a: 1}
-  - {r: 0.6037736, g: 0.1793387, b: 0, a: 1}
-  - {r: 0.38679248, g: 0.12193298, b: 0.009122463, a: 1}
-  - {r: 1, g: 0.17318437, b: 0, a: 1}
-  - {r: 0.9245283, g: 0.5919539, b: 0.34451762, a: 1}
-  m_MidRangePlanetColors:
-  - {r: 0.17613766, g: 0.46226418, b: 0.17225882, a: 1}
-  - {r: 0, g: 0.20873691, b: 0.5566038, a: 1}
-  - {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
-  - {r: 0.57932925, g: 0.35056958, b: 0.735849, a: 1}
-  m_FarRangePlanetColors:
-  - {r: 0.8962264, g: 0.68668306, b: 0.19023676, a: 1}
-  - {r: 0.61877, g: 0.824641, b: 0.9716981, a: 1}
-  - {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
-  - {r: 0.5613208, g: 0.6668156, b: 1, a: 1}
-  - {r: 0.5613208, g: 0.6668156, b: 1, a: 1}
+    m_MaxValue: 10
