@@ -9,10 +9,6 @@ namespace SolarSystem
     {
         Star m_Star;
         List<Planet> m_Planets = new List<Planet>();
-        
-        //!TO BE DELETED, USED JUST FOR TESTING
-        bool isSpawned = false;
-        [SerializeField] Vehicles.Core.VehicleComponentBase testVehicle;
     
         public void Initialize(Configs.SolarSystemConfig config)
         {
@@ -36,16 +32,6 @@ namespace SolarSystem
                 distanceFromStar += newPlanet.GetRadiusWithMoons() * 2f + config.GetDistanceBetweenPlanetsRange().GetRandomValueFromRange();
                 m_Planets.Add(newPlanet);
             }
-        }
-
-        void LateUpdate()
-        {
-            if (isSpawned) return;
-            
-            //! TO BE DELETED, USED JUST FOR TESTING
-            testVehicle = Instantiate(testVehicle, m_Planets[1].transform.position, Quaternion.identity);
-            testVehicle.StartTravel(m_Star.transform, m_Planets[3]?.transform, m_Star.GetDiameter() * 2f);
-            isSpawned = true;
         }
     }
 }

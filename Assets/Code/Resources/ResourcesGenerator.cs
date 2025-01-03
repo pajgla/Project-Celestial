@@ -7,7 +7,7 @@ namespace Resources
 {
     public static class ResourcesGenerator
     {
-        public static void GeneratePlanetResources(CelestialObjectConfigBase config, Planet planet)
+        public static void GeneratePlanetResources(PlanetConfig config, Planet planet)
         {
             if (config == null)
             {
@@ -57,27 +57,21 @@ namespace Resources
 
             foreach (ResourceRarityWrapper resourceRarityWrapper in resourcesRarityWrappers)
             {
-                int chance = Random.Range(0, 101);
-                if (rarityChancesConfig.IsChanceCheckPassed(resourceRarityWrapper.GetResourceRarity(), chance))
+                EResourceType resourceType = resourceRarityWrapper.GetResourceType();
+                EResourceRarity resourceRarity = resourceRarityWrapper.GetResourceRarity();
+                ResourceSpawningConfig.ResourceAmountEntry resourceAmountEntry = resourceSpawningConfig.GetResourceAmountFor(resourceType, resourceRarity);
+                if (resourceAmountEntry == null)
                 {
-                    EResourceType resourceType = resourceRarityWrapper.GetResourceType();
-                    EResourceRarity resourceRarity = resourceRarityWrapper.GetResourceRarity();
-                    ResourceSpawningConfig.ResourceAmountEntry resourceAmountEntry =
-                        resourceSpawningConfig.GetResourceAmountFor(resourceType, resourceRarity);
-
-                    if (resourceAmountEntry == null)
-                    {
-                        continue;
-                    }
-
-                    //#TODO Implement celestial object radius multiplier
-                    float spawnAmount = resourceAmountEntry.m_AmountRange.GetRandomValueFromRange();
-                    resourcesHolder.AddResource(resourceType, spawnAmount);
+                    continue;
                 }
+                
+                float spawnAmount = resourceAmountEntry.m_AmountRange.GetRandomValueFromRange();
+                float scaledAmount = ScaleResourceBasedOnDiameter(config, planet, spawnAmount);
+                resourcesHolder.AddResource(resourceType, scaledAmount);
             }
         }
 
-        public static void GenerateMoonResources(CelestialObjectConfigBase config, Moon moon)
+        public static void GenerateMoonResources(MoonConfig config, Moon moon)
         {
             if (config == null)
             {
@@ -139,12 +133,20 @@ namespace Resources
                     {
                         continue;
                     }
-
-                    //#TODO Implement celestial object radius multiplier
+                    
                     float spawnAmount = resourceAmountEntry.m_AmountRange.GetRandomValueFromRange();
-                    resourcesHolder.AddResource(resourceType, spawnAmount);
+                    float scaledAmount = ScaleResourceBasedOnDiameter(config, moon, spawnAmount);
+                    resourcesHolder.AddResource(resourceType, scaledAmount);
                 }
             }
+        }
+
+        static float ScaleResourceBasedOnDiameter(CelestialObjectConfigBase config, CelestialObjectBase celestialObject, float originalSpawnAmount)
+        {
+            Core.Helpers.RangeValueFloat planetDiameterRange = config.GetObjectDiameterRange();
+            float averageSize = (planetDiameterRange.GetMaxValue() + planetDiameterRange.GetMinValue()) / 2f;
+            float scale = celestialObject.GetDiameter() / averageSize;
+            return originalSpawnAmount * scale;
         }
     }
 }
