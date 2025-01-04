@@ -11,7 +11,7 @@ namespace Core.Singleton
         
         protected virtual void Awake()
         {
-            if (sm_Instance != null)
+            if (sm_Instance != null && sm_Instance != this)
             {
                 Debug.LogWarning($"One instance of {typeof(T).FullName} already exists. Destroying the new instance.");
                 Destroy(gameObject);
