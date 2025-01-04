@@ -66,8 +66,6 @@ namespace Core.Controllers
             Unhighlight();
             m_ObjectHighlighterComponent = component;
             m_ObjectHighlighterComponent.OnHighlight();
-            
-            print("Highlighted");
         }
 
         Vector2 GetMousePosition()

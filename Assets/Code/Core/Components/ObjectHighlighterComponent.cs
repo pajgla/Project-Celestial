@@ -42,18 +42,6 @@ namespace Core.Components
 
         public void OnSelect()
         {
-            //#TODO This is just for debugging purposes
-            
-            ResourceHoldingCelestialObject resourceHoldingCelestialObject = GetComponent<ResourceHoldingCelestialObject>();
-            if (resourceHoldingCelestialObject == null)
-                return;
-            
-            CelestialObjectResourcesHolder resourcesHolder = resourceHoldingCelestialObject.GetCelestialObjectResourcesHolder();
-
-            foreach (var resourceTuple in resourcesHolder.GetToBeMinedResourcesHolder().GetHoldingResources())
-            {
-                Debug.Log(resourceTuple.Key.ToString() + ": " + resourceTuple.Value);
-            }
         }
     }
 }
