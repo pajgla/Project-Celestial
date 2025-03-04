@@ -44,3 +44,6 @@ TagManager:
   - name: Vehicles
     uniqueID: 936476691
     locked: 0
+  - name: UI
+    uniqueID: 2108211593
+    locked: 0
